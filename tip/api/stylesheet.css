@@ -1,0 +1,134 @@
+/* Javadoc style sheet */
+/* $Id$ */
+/* Define colors, fonts and other style attributes here to override the defaults  */
+
+/*********************
+ * standard elements *
+ *********************/
+
+/* Page background color */
+body { 
+    background-color: #FFFFFF;
+    font-style:        normal;
+    font-size:           10pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* H1 headers will stand out heavily; they use white types on
+   a dark blue background. The left side of the resulting "bar"
+   is smoothed with a scaled fading from white to blue using
+   a background image (white-blue.jpg).
+*/
+h1 {
+	font-size: 18pt; font-style: normal; font-weight: bold; 
+	text-indent: 20px;
+	color: #FFFFFF;
+	background-color: #000066; 
+	background-image: url(white-blue.jpg);
+	background-repeat: repeat-y; 
+}
+h2 { font-size: 14pt; font-style: normal; font-weight: bold; }
+h3 { font-size: 12pt; font-style: normal; font-weight: bold; }
+h4 { font-size: 10pt; font-style: normal; font-weight: bold; }
+
+
+table {
+	border: 0 #FFFFFF;
+	width: 100%;
+}
+
+th {
+	padding-left:   10pt;
+	padding-right:  10pt;
+	font-size:      12pt;
+	font-style:     bold;
+	background:  #EEEEFF;	/* Light mauve */
+}
+
+/* Very light mauve */ 
+td {
+	padding-left:    5pt;
+	padding-right:   5pt;
+	font-size:      10pt;
+	font-style:   normal;
+	background:  #f9f9ff;	
+	vertical-align:  top;
+}
+
+code {
+/*
+	margin-left:    10pt;
+	margin-right:   10pt;
+	margin-top:      5pt; 
+	margin-bottom:   5pt;
+	padding-top:     5pt;
+	padding-bottom:  5pt;
+	padding-left:    5pt;
+	padding-right:   5pt;
+	*/
+	font-family:  Lucida, Courier, Console;
+	font-type:      bold;
+	/*
+	background:  #efefef;*/	/* grey */
+}
+
+pre {
+	font-family:	Lucida, Courier, Console;
+	background:		#efefef;	/* grey */
+}
+
+
+/***********************
+ * customized elements *
+ ***********************/
+
+/* These elements are copied from the default JavaDoc stylesheet. */
+
+/* Table colors */
+#TableHeadingColor     { background: #CCCCFF; }	/* Dark mauve */
+#TableSubHeadingColor  { background: #EEEEFF; }	/* Light mauve */
+#TableSub2HeadingColor { background:	#f9f9ff; }	/* Very light mauve */
+#TableRowColor         { background: #FFFFFF; }	/* White */
+
+/* Font used in left-hand frame lists */
+#FrameTitleFont   { font-size: normal; }
+#FrameHeadingFont { font-size: normal; }
+#FrameItemFont    { font-size: normal; }
+
+/* Example of smaller, sans-serif font in frames */
+/* #FrameItemFont  { font-size: 10pt; font-family: Helvetica, Arial, sans-serif } */
+#FrameItemFont  { font-size: 10pt; font-family: Helvetica, Arial, sans-serif }
+
+/* Navigation bar fonts and colors */
+#NavBarCell1    { background-color:#EEEEFF; }/* Light mauve */
+#NavBarCell1Rev { background-color:#00008B; }/* Dark Blue */
+#NavBarFont1    { color:#000000; }
+#NavBarFont1Rev { color:#FFFFFF; }
+
+#NavBarCell2    { background-color:#FFFFFF; }
+#NavBarCell3    { background-color:#FFFFFF; }
+
+
+/* Header styles */
+#TableH1	{ font-size: 14pt; background: #CCCCFF; } /* Dark mauve */
+#TableH2	{ font-size: 18pt; background: #EEEEFF; } /* Light mauve */
+
+
+/****************
+ * legal notice *
+ ****************/
+/* smaller, since it's printed on every page. */
+
+#LegalNotice {
+	font-size:			 7pt;
+	background-color:	#F7F7F7;
+	margin-top:			 5pt;
+	margin-right:		15pt;
+	margin-bottom:		 5pt;
+	margin-left:		15pt;
+	padding-top:		 5px;
+	padding-right:		 5px;
+	padding-bottom:		 5px;
+	padding-left:		 5px;
+	border:				 1px #EBEBEB solid;
+}	

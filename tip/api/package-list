@@ -1,0 +1,13 @@
+de.fub.tip
+de.fub.tip.actionforms
+de.fub.tip.actions
+de.fub.tip.actions.admin
+de.fub.tip.actions.debug
+de.fub.tip.datenanzeige
+de.fub.tip.datenanzeige.beans
+de.fub.tip.datenanzeige.container
+de.fub.tip.datenanzeige.ormapper
+de.fub.tip.datenbank
+de.fub.tip.datenbank.factory
+de.fub.tip.datenbank.logik
+de.fub.tip.exceptions
