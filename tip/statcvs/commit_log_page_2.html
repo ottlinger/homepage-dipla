@@ -1,0 +1,1109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>StatCvs - Commit Log (Page 2 of 8)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Generator" content="StatCvs v0.2-dev">
+    <link rel="stylesheet" href="http://statcvs.sf.net/stats/statcvs.css" type="text/css">
+  </head>
+
+<body>
+
+
+<h1>Commit Log (Page 2 of 8)</h1>
+
+<p><a href="index.html">back to main page</a></p>
+<p>Pages: <a href="commit_log.html">&laquo; Previous</a> <a href="commit_log.html">1</a> 2 <a href="commit_log_page_3.html">3</a> <a href="commit_log_page_4.html">4</a> <a href="commit_log_page_5.html">5</a> <a href="commit_log_page_6.html">6</a> <a href="commit_log_page_7.html">7</a> <a href="commit_log_page_8.html">8</a> <a href="commit_log_page_3.html">Next &raquo;</a> </p>
+<p class="summaryperiod">
+  Summary Period:
+  <span class="date">2004-05-13</span> to
+  <span class="date">2004-04-29</span>  (Commits 267-316 of 366)
+</p>
+<dl class="commitlist">
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-13 14:54</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige der Profileigenschaften verfeinert für Screenshots
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/beans</strong>:
+        HtmlCheckboxDarstellungBean.java&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>,
+        changeprofiltgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-13 14:29</span>
+  </dt>
+  <dd>
+    <p class="comment">
+aboStatus entfernt und<BR>
+Bei SightGruppeVO-Anzeige die BEschreibung hinzugefügt
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/beans</strong>:
+        HtmlCheckboxDarstellungBean.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>,
+        changeprofiltgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-13 14:13</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Datenbankverbindung überall eingesetzt.<BR>
+Tippfehler in Javadoc ausgebessert.
+    </p>
+    <p class="commitdetails"><strong>47</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        EreignishistorienBearbeiter.java&nbsp;<span class="change">(+5&nbsp;-4)</span>,
+        LocationEventResetter.java&nbsp;<span class="change">(+11&nbsp;-6)</span>,
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+6&nbsp;-4)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+3&nbsp;-3)</span>,
+        StatusAnzeiger.java&nbsp;<span class="change">(+5&nbsp;-3)</span>,
+        ThemenBearbeiter.java&nbsp;<span class="change">(+17&nbsp;-16)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-13 14:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Passwortänderung an INF zieht sich durch die gesamte Anwendung:<BR>
+a) Struts-config.xml<BR>
+b) alle Actions, die am Pool vorbei Verbindungen holen<BR>
+(daher neue Klasse, die Verbindung statisch abstrahiert)
+    </p>
+    <p class="commitdetails"><strong>30</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBKonfig.java&nbsp;<span class="new">(new&nbsp;28)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        EreignishistorienBearbeiter.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-13 13:32</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Datenbank hat jetzt ein Passwort und nen neuen Admin (juergen bross).
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 12:01</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Debuggingausgaben entfernzt - es war ein Fehler in der Datenbasis.<BR>
+Lustgarten hatte keine Positionsangabe!
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+1&nbsp;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 11:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+debugging
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+3&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 11:39</span>
+  </dt>
+  <dd>
+    <p class="comment">
+weiteres Debugging
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+5&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 11:33</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Nur bei Eingabe von lustg kommt NullPointerException Rest geht
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+3&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 11:19</span>
+  </dt>
+  <dd>
+    <p class="comment">
+unklar, warum da ein NullWert auftaucht ....
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+4&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 11:12</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Linkmarkierung um Bild entfernt (border="0")
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 11:07</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Zur Bildanzeige jetzt einen Link auf das richtige Bild (in einem neuen Fenster)<BR>
+hinzugefügt
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:53</span>
+  </dt>
+  <dd>
+    <p class="comment">
+ifNull-Test entfernt ...
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+toString von locationVo angepasst
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+5&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:42</span>
+  </dt>
+  <dd>
+    <p class="comment">
+In Abfragen mag er kjein rs.getString("p.foo") und will stattdessen nur foo
+    </p>
+    <p class="commitdetails"><strong>15</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+15&nbsp;-15)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:30</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Javadoc und SightVO rausgenommen, da unnötig
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+1&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+2.Logikmethode enthielt keine Speicherung des Bildes
+    </p>
+    <p class="commitdetails"><strong>37</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+37&nbsp;-14)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:12</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Abfrage auf NULL-Werte hinzugefügt
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:08</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige des Bildes geht noch nicht.
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:03</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Tippfehler in LocationVO hat Anzeige des Bildes verhindert -<BR>
+der Getter hiess getPic und sollte getPicture heissen :-)
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 09:55</span>
+  </dt>
+  <dd>
+    <p class="comment">
+jetzt wird ein Bild angezeigt, wenn der eingegebene Ort in der<BR>
+Datenbank gefunden wird.<BR>
+Dazu die Datenstruktur umgebaut und das Bild mit in das LocationVO<BR>
+reingepackt. Ist sauberer als ein SightVO zu nehmen, da man die Anzeigen nicht wirklich haben möchte, die in einem SightVO mit drinstecken<BR>
+(verbraucht auch zu viel sinnloisen Speicherplatz)
+    </p>
+    <p class="commitdetails"><strong>173</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+5&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+18&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+30&nbsp;-36)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+120&nbsp;-106)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-01 17:31</span>
+  </dt>
+  <dd>
+    <p class="comment">
+leere Selektion wird jetzt in Action und Logik gesondert behandelt und<BR>
+sollte keine NullPointerException mehr auslösen!
+    </p>
+    <p class="commitdetails"><strong>62</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        UebernimmSightGruppenProfilAction.java&nbsp;<span class="change">(+8&nbsp;-10)</span>,
+        UebernimmTopicGruppenProfilAction.java&nbsp;<span class="change">(+8&nbsp;-10)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+21&nbsp;-18)</span>,
+        ThemenBearbeiter.java&nbsp;<span class="change">(+21&nbsp;-18)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-01 17:15</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Wenn die Menge der selektierten teile leer ist (a) Fehler, b) User will nix) wird<BR>
+ein Fehler gemeldet - das ist jetzt raus!
+    </p>
+    <p class="commitdetails"><strong>14</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        UebernimmSightGruppenProfilAction.java&nbsp;<span class="change">(+7&nbsp;-7)</span>,
+        UebernimmTopicGruppenProfilAction.java&nbsp;<span class="change">(+7&nbsp;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-01 17:03</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Wenn ein neuer Benutzer ohne Profilinhalte ankommt, gibt es noch probleme<BR>
+beim Speichern!
+    </p>
+    <p class="commitdetails"><strong>22</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+11&nbsp;-4)</span>,
+        ThemenBearbeiter.java&nbsp;<span class="change">(+11&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-01 16:41</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Tippfehler bei ResourceBundle-Inhalten,<BR>
+Anpassung des Seitentiels im changePropfil-Menü
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        changeprofil.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-01 16:37</span>
+  </dt>
+  <dd>
+    <p class="comment">
+CreateUser auf Transaktion umgestellt, da jetzt zusätzlich noch ein<BR>
+Benutzerprofil angelegt wird (Tabelle profile in DB)
+    </p>
+    <p class="commitdetails"><strong>111</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        CreateUserAction.java&nbsp;<span class="change">(+7&nbsp;-4)</span>,
+        EventAreaAction.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        BenutzerBearbeiter.java&nbsp;<span class="change">(+96&nbsp;-60)</span>,
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+5&nbsp;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 16:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fehler in Javadoc beseitigt. CodeBeautify()
+    </p>
+    <p class="commitdetails"><strong>127</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/container</strong>:
+        EreignishistorieneintragVOContainer.java&nbsp;<span class="change">(+5&nbsp;-3)</span>,
+        InformationVOContainer.java&nbsp;<span class="new">(new&nbsp;105)</span>,
+        SightGruppeVOContainer.java&nbsp;<span class="change">(+3&nbsp;-2)</span>,
+        SightVOContainer.java&nbsp;<span class="change">(+11&nbsp;-6)</span>,
+        TopicVOContainer.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 14:40</span>
+  </dt>
+  <dd>
+    <p class="comment">
+ActionRefatcoring:<BR>
+alle lokalen Variablen entfernt, jetzt ist nur noch der Logger einer Action und Ihre<BR>
+DataSource als lokale Variable vorhanden. Der Rest ist jeweils methodenlokal!<BR>
+<BR>
+Anpassen der Javadoc-Kommentare in ThemenBearbeiter und SightGruppenBearbeiter.
+    </p>
+    <p class="commitdetails"><strong>35</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        CreateUserAction.java&nbsp;<span class="change">(+11&nbsp;-11)</span>,
+        EventAreaAction.java&nbsp;<span class="change">(+11&nbsp;-21)</span>,
+        LoginAction.java&nbsp;<span class="change">(+7&nbsp;-5)</span>,
+        SightGruppenBetrachterAction.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        ThemenBearbeiter.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 14:23</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anpassungen am Layout vorgenommen und<BR>
+Debugging-Ausgabe der Variablen entfernt!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>,
+        changeprofiltgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        changeprofil.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 14:15</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Inhalte angepasst
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 14:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+kleiner typo -&gt; Variable heisst tprofil statt sprofil
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/input</strong>:
+        changeprofiltgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 14:04</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Einbau der ThemenBearbeiterLogik,<BR>
+kleiner Fehler in Javadoc und Kommentaren bei SightGruppenAnzeige ausgemerzt,<BR>
+HTML-Seiten angepasst,<BR>
+ResourceBundle-Inahlte erstellt und eingebaut.
+    </p>
+    <p class="commitdetails"><strong>425</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowProfilAction.java&nbsp;<span class="change">(+64&nbsp;-21)</span>,
+        UebernimmTopicGruppenProfilAction.java&nbsp;<span class="change">(+66&nbsp;-41)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+4&nbsp;-4)</span>,
+        ThemenBearbeiter.java&nbsp;<span class="change">(+281&nbsp;-28)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+10&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>,
+        changeprofiltgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 13:02</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Sehenswürdigkeitsprofilbearbeitung geht komplett!!! JUCHHE!
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+1&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-30 11:31</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Logik zur Speicherung der Ergebnisse eingebaut
+    </p>
+    <p class="commitdetails"><strong>92</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        UebernimmSightGruppenProfilAction.java&nbsp;<span class="change">(+64&nbsp;-36)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+28&nbsp;-25)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 17:01</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Refactoring der ActionForm in den Dateien eingebaut<BR>
+(Namensänderung)
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowProfilAction.java&nbsp;<span class="change">(+4&nbsp;-4)</span>,
+        UebernimmSightGruppenProfilAction.java&nbsp;<span class="change">(+4&nbsp;-4)</span>,
+        UebernimmTopicGruppenProfilAction.java&nbsp;<span class="change">(+4&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+enternt aus CVS
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        ChangeSightGruppeProfilActionForm.java&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:45</span>
+  </dt>
+  <dd>
+    <p class="comment">
+umbenannt.
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        ChangeProfilActionForm.java&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:42</span>
+  </dt>
+  <dd>
+    <p class="comment">
+ActionForm kann sowohl für die Anzeige des Themen- als auch des Sehenswürdigkeitsgruppenprofils benutzt werden.
+    </p>
+    <p class="commitdetails"><strong>148</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        ChangeProfilActionForm.java&nbsp;<span class="new">(new&nbsp;133)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/beans</strong>:
+        HtmlCheckboxDarstellungBean.java&nbsp;<span class="change">(+6&nbsp;-6)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+7&nbsp;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+TopicVO an neue HTML-Checkbox Struktur angepasst (attribut aboStatus)<BR>
+<BR>
+Bean zur Anzeige umbenannt, da es sowhl zur Topic- als auch zur SightGruppenAnzeige benutzt wird -<BR>
+ist ebend OO ;-.^
+    </p>
+    <p class="commitdetails"><strong>165</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/beans</strong>:
+        HtmlCheckboxDarstellungBean.java&nbsp;<span class="new">(new&nbsp;122)</span>,
+        SightGruppeAnzeigeBean.java&nbsp;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        TopicVO.java&nbsp;<span class="change">(+43&nbsp;-10)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:09</span>
+  </dt>
+  <dd>
+    <p class="comment">
+alter Ueberrest aus Debugging der letzten 3 Tage
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ChangeSightGruppenAction.java&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Leere Rümpfe hingeschrieben,<BR>
+die ActionMessage zur Ausgabe erzeugen und<BR>
+prüefen, ob die Parameter (slektierte gruppen) übergeben werden.
+    </p>
+    <p class="commitdetails"><strong>85</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        UebernimmSightGruppenProfilAction.java&nbsp;<span class="change">(+35&nbsp;-13)</span>,
+        UebernimmTopicGruppenProfilAction.java&nbsp;<span class="change">(+35&nbsp;-11)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+12&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 15:45</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Namenskonventionen eingehalten ... die ActionKlassen heissen<BR>
+jetzt auch wieder xyzAction!
+    </p>
+    <p class="commitdetails"><strong>148</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+8&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        UebernimmSightGruppenProfil.java&nbsp;<span class="del">(del)</span>,
+        UebernimmSightGruppenProfilAction.java&nbsp;<span class="new">(new&nbsp;70)</span>,
+        UebernimmTopicGruppenProfil.java&nbsp;<span class="del">(del)</span>,
+        UebernimmTopicGruppenProfilAction.java&nbsp;<span class="new">(new&nbsp;70)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 15:33</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umwandlung der UebernehmenAction in eine fuer jede Profiluntergruppe:<BR>
+* Sehenswuerdigkeitsgruppen<BR>
+* Themengruppen
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        UebernehmenAction.java&nbsp;<span class="del">(del)</span>,
+        UebernimmSightGruppenProfil.java&nbsp;<span class="new">(new&nbsp;0)</span>,
+        UebernimmTopicGruppenProfil.java&nbsp;<span class="new">(new&nbsp;0)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        changeprofil.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 15:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umbenennung/ Refactoring der Action zur ANzeige der Profilinformationen zur weiteren<BR>
+Bearbeitung
+    </p>
+    <p class="commitdetails"><strong>144</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ChangeProfilAction.java&nbsp;<span class="del">(del)</span>,
+        ShowProfilAction.java&nbsp;<span class="new">(new&nbsp;141)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 15:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+in strutsconfig.xml hat bei der DispatchUebernehmenAction ein<BR>
+parameter="method" gefehlt!
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 14:54</span>
+  </dt>
+  <dd>
+    <p class="comment">
+letzter Versuch:<BR>
+Uebernehme, was vorher eine Action war und super ging, wird jetzt zur<BR>
+DispatchAction mit Methode changeprofilsgroup ... jetzt sehen, ob der gleiche Fehler bei Verweisen<BR>
+darauf kommt.
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+2&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ChangeProfilAction.java&nbsp;<span class="change">(+1&nbsp;-40)</span>,
+        UebernehmenAction.java&nbsp;<span class="change">(+6&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 14:42</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Zugriffsrechte (executable) werden nicht ins CVS übernommen ...
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        antDeployFastWAR.sh&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 14:41</span>
+  </dt>
+  <dd>
+    <p class="comment">
+alte UebernehmenAction rausgenommen, um zu testen, wie sich<BR>
+DispatchAction verhält:<BR>
+jetzt sind die weiterleitungen (actionforwards) sowie der quellcode in der<BR>
+action.execute()-Methode gleich.
+    </p>
+    <p class="commitdetails"><strong>20</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        antDeployFastWAR.sh&nbsp;<span class="change">(+2&nbsp;-2)</span>,
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ChangeProfilAction.java&nbsp;<span class="change">(+15&nbsp;-8)</span>
+      </li>
+      <li>
+        <strong>pages/input</strong>:
+        changeprofilsgroup.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 14:34</span>
+  </dt>
+  <dd>
+    <p class="comment">
+tippfehler
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        antDeployFastWAR.sh&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 14:33</span>
+  </dt>
+  <dd>
+    <p class="comment">
+neues DeploymentSkript hinzugefügt, dass das<BR>
+System ohne Dokus und damit sehr schnell baut.
+    </p>
+    <p class="commitdetails"><strong>41</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        antDeployFastWAR.sh&nbsp;<span class="new">(new&nbsp;41)</span>,
+        antDeployWAR.sh&nbsp;<span class="change">(changed)</span>,
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>Pages: <a href="commit_log.html">&laquo; Previous</a> <a href="commit_log.html">1</a> 2 <a href="commit_log_page_3.html">3</a> <a href="commit_log_page_4.html">4</a> <a href="commit_log_page_5.html">5</a> <a href="commit_log_page_6.html">6</a> <a href="commit_log_page_7.html">7</a> <a href="commit_log_page_8.html">8</a> <a href="commit_log_page_3.html">Next &raquo;</a> </p>
+<div id="generatedby"><p>Generated by <a href="http://statcvs.sf.net">StatCvs</a> v0.2-dev</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>StatCvs - Module WEB-INF/src/de/fub/tip/datenanzeige/ormapper/</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Generator" content="StatCvs v0.2-dev">
+    <link rel="stylesheet" href="http://statcvs.sf.net/stats/statcvs.css" type="text/css">
+  </head>
+
+<body>
+
+
+<h1>Module WEB-INF/src/de/fub/tip/datenanzeige/ormapper/</h1>
+
+<p><a href="index.html">back to main page</a></p>
+<p class="summaryperiod">
+  Summary Period:
+  <span class="date">2004-02-25</span> to
+  <span class="date">2004-06-11</span> 
+</p>
+
+<h2>Modules</h2>
+
+<p><a href="module.html">[root]</a>/<a href="module_WEB-INF.html">WEB-INF</a>/<a href="module_WEB-INF_src.html">src</a>/<a href="module_WEB-INF_src_de.html">de</a>/<a href="module_WEB-INF_src_de_fub.html">fub</a>/<a href="module_WEB-INF_src_de_fub_tip.html">tip</a>/<a href="module_WEB-INF_src_de_fub_tip_datenanzeige.html">datenanzeige</a>/<strong>ormapper</strong>
+<br></p>
+
+<h2>Lines of Code</h2>
+
+<p><img src="loc_module_WEB-INF_src_de_fub_tip_datenanzeige_ormapper.png" width="640" height="480" alt=""><br>
+<strong>Total Lines Of Code: </strong>
+1859 (<span class="date">2004-06-13 13:05</span>)</p>
+
+<h2>Authors</h2>
+
+  <table rules="groups" summary="All authors and the number of their changes and lines of code in this directory">
+    <colgroup align="left">
+    <colgroup align="right">
+    <colgroup align="right">
+    <colgroup align="right">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th><a href="user_hirsch.html" class="author">hirsch</a></th>
+        <td>92 (100.0%)</td>
+        <td>2253 (100.0%)</td>
+        <td>24.4</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<h2>Most Recent Commits</h2>
+
+<dl class="commitlist">
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 23:52</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Alle VOs sind jetzt in ihren toString()-Methoden<BR>
+ohne NullPointer-Aufkommen - damit kann man auch halbgeladene<BR>
+Bohnen ausgeben und kriegt keine Fehler mehr !
+    </p>
+    <p class="commitdetails"><strong>150</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        CityVO.java&nbsp;<span class="change">(+12&nbsp;-4)</span>,
+        CountryVO.java&nbsp;<span class="change">(+11&nbsp;-4)</span>,
+        EinzeilerVO.java&nbsp;<span class="change">(+4&nbsp;-3)</span>,
+        EreignishistorieneintragVO.java&nbsp;<span class="change">(+17&nbsp;-4)</span>,
+        EventVO.java&nbsp;<span class="change">(+16&nbsp;-4)</span>,
+        InformationVO.java&nbsp;<span class="change">(+15&nbsp;-4)</span>,
+        LocationVO.java&nbsp;<span class="change">(+10&nbsp;-3)</span>,
+        PictureVO.java&nbsp;<span class="change">(+17&nbsp;-9)</span>,
+        SightGruppeVO.java&nbsp;<span class="change">(+16&nbsp;-8)</span>,
+        SightVO.java&nbsp;<span class="change">(+3&nbsp;-8)</span>,
+        TopicVO.java&nbsp;<span class="change">(+12&nbsp;-4)</span>,
+        UserdataVO.java&nbsp;<span class="change">(+17&nbsp;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 23:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+city und country wurden nicht auf isNull() geprüft! in toString()-Aufruf,<BR>
+zusätzlich jetzt logger eingebaut, um zu sehen, ob das der letzte Aufruf in catalina.out ist!
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+12&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 22:48</span>
+  </dt>
+  <dd>
+    <p class="comment">
+toString()-Methode nun garantiert ohne NullWerte gemacht!
+    </p>
+    <p class="commitdetails"><strong>15</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+15&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-20 10:27</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Rechtschreibfehler beseitigt in Titelseite, die auch im Anhang ist
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        package.html&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+toString von locationVo angepasst
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+5&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 10:03</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Tippfehler in LocationVO hat Anzeige des Bildes verhindert -<BR>
+der Getter hiess getPic und sollte getPicture heissen :-)
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-03 09:55</span>
+  </dt>
+  <dd>
+    <p class="comment">
+jetzt wird ein Bild angezeigt, wenn der eingegebene Ort in der<BR>
+Datenbank gefunden wird.<BR>
+Dazu die Datenstruktur umgebaut und das Bild mit in das LocationVO<BR>
+reingepackt. Ist sauberer als ein SightVO zu nehmen, da man die Anzeigen nicht wirklich haben möchte, die in einem SightVO mit drinstecken<BR>
+(verbraucht auch zu viel sinnloisen Speicherplatz)
+    </p>
+    <p class="commitdetails"><strong>18</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+18&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-29 16:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+TopicVO an neue HTML-Checkbox Struktur angepasst (attribut aboStatus)<BR>
+<BR>
+Bean zur Anzeige umbenannt, da es sowhl zur Topic- als auch zur SightGruppenAnzeige benutzt wird -<BR>
+ist ebend OO ;-.^
+    </p>
+    <p class="commitdetails"><strong>43</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        TopicVO.java&nbsp;<span class="change">(+43&nbsp;-10)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-26 11:20</span>
+  </dt>
+  <dd>
+    <p class="comment">
+EventhistorienAnzeige für Benutzer integriert,<BR>
+Umwandlung der EreignishistoryAction in eine DispatchAction<BR>
+zur einfacheren Anzeige
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        EreignishistorieneintragVO.java&nbsp;<span class="change">(+1&nbsp;-13)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-23 10:55</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Schreiben eines veränderten Sehenswürdigkeits-<BR>
+gruppenprofils implementiert - kann noch nicht<BR>
+getestet werden, da die Anzeige noch nicht hinhaut.
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightGruppeVO.java&nbsp;<span class="change">(+1&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-22 17:48</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Profiländerungsrümpfe implementiert -<BR>
+Änderung im VO-Objekt -&gt; neues Feld<BR>
+aboStatus, dass diese Logik kapselt. Ist zwar ein wenig<BR>
+dreckig aber besser als in der VIEW rumzuscripten<BR>
+oder neue Klassen (VO+Container) zu haben.
+    </p>
+    <p class="commitdetails"><strong>37</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightGruppeVO.java&nbsp;<span class="change">(+37&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-20 11:12</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SightGruppeVO + Container + Anzeige implementiert.<BR>
+Darstellung angepasst (JSP-Seiten, andere ResourceBundle Inhalte)
+    </p>
+    <p class="commitdetails"><strong>97</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightGruppeVO.java&nbsp;<span class="change">(+97&nbsp;-9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-17 15:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anlegen diverser neuer Rümpfe zur Implementierung<BR>
+neuer Aktionen jeweils mit:<BR>
+* Action<BR>
+* LogicObjekt<BR>
+* LogicFactory und wenn fehlend:<BR>
+* VO und<BR>
+* VOContainer.
+    </p>
+    <p class="commitdetails"><strong>34</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightGruppeVO.java&nbsp;<span class="new">(new&nbsp;34)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-14 15:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+ThemenBearbeiter:<BR>
+aufgesplittet in 2 Ergebnisse für Themen des Benutzer:<BR>
+a) alle abonnierten<BR>
+b) alle nicht abonnierten.<BR>
+<BR>
+HTML-Seite angefangen.
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        TopicVO.java&nbsp;<span class="change">(+2&nbsp;-27)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-14 11:15</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SQL-Logik bei Themenanzeige - irgendwie ist dieses<BR>
+Datenmodell manchmal so gruselig ...<BR>
+ich frage mich, was wofür da ist und was der<BR>
+eigentliche Sinn hinter Tabellen ist, die zwei IDs<BR>
+zusammenbringen.
+    </p>
+    <p class="commitdetails"><strong>35</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        TopicVO.java&nbsp;<span class="change">(+35&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-09 02:07</span>
+  </dt>
+  <dd>
+    <p class="comment">
+StatusAnzeige implementiert :-) JUCHHE!<BR>
+Logik und Actions sind komplett fertig.
+    </p>
+    <p class="commitdetails"><strong>64</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        EinzeilerVO.java&nbsp;<span class="new">(new&nbsp;64)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-07 00:20</span>
+  </dt>
+  <dd>
+    <p class="comment">
+VO:<BR>
+alle ViewObjekte implementieren jetzt auch<BR>
+java.io.Serializable - nur so geht später mal RMI!<BR>
+<BR>
+Anonsten Umstrukturierung und Javadoc in action-Package -<BR>
+Unterpakete angepasst an Menüstruktur<BR>
+(nur Skelett gelegt, noch nichts geändert)
+    </p>
+    <p class="commitdetails"><strong>48</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        CityVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        CountryVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        EreignishistorieneintragVO.java&nbsp;<span class="change">(+6&nbsp;-4)</span>,
+        EventVO.java&nbsp;<span class="change">(+3&nbsp;-2)</span>,
+        InformationVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        LocationVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        PictureVO.java&nbsp;<span class="change">(+3&nbsp;-2)</span>,
+        SightVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        TopicVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        UserdataVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>,
+        ViewObject.java&nbsp;<span class="change">(+8&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-06 23:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+StandoirtPruefer:<BR>
+SQL eingefügt und Parameterladen angepasst
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-06 23:16</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Refactoring - Anpassen von JavaDoc,<BR>
+Entfernen von LoggingAufrufen.<BR>
+<BR>
+StandortPruefer:<BR>
+jetzt wird auch für die Eingabe von Koordinaten in der DB<BR>
+nach einerm Standortbezeichner gesucht.
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+12&nbsp;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-05 00:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+komplettes Dokumentieren der einzelnen Packages nach dem heute<BR>
+rausgefundenen Schema von SUN -<BR>
+juchhe!<BR>
+Viel Tipparbeit - aber jetzt sieht das Javadoc-Resultat<BR>
+wenigstens wie eine Anwendung aus.<BR>
+Die neue statcvs-Version ist auch sehr gut!
+    </p>
+    <p class="commitdetails"><strong>48</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        package.html&nbsp;<span class="new">(new&nbsp;48)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>(33 more)</p>
+<div id="generatedby"><p>Generated by <a href="http://statcvs.sf.net">StatCvs</a> v0.2-dev</p>
+</div>
+</body>
+</html>

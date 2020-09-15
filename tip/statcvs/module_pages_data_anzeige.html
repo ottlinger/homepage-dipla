@@ -1,0 +1,453 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>StatCvs - Module pages/data/anzeige/</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Generator" content="StatCvs v0.2-dev">
+    <link rel="stylesheet" href="http://statcvs.sf.net/stats/statcvs.css" type="text/css">
+  </head>
+
+<body>
+
+
+<h1>Module pages/data/anzeige/</h1>
+
+<p><a href="index.html">back to main page</a></p>
+<p class="summaryperiod">
+  Summary Period:
+  <span class="date">2004-03-02</span> to
+  <span class="date">2004-03-31</span> 
+</p>
+
+<h2>Modules</h2>
+
+<p><a href="module.html">[root]</a>/<a href="module_pages.html">pages</a>/<a href="module_pages_data.html">data</a>/<strong>anzeige</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<img src="folder.png" width="15" height="13"> 
+<a href="module_pages_data_anzeige_event.html">event</a> 
+(2 files, 0 lines)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="folder.png" width="15" height="13"> 
+<a href="module_pages_data_anzeige_sight.html">sight</a> 
+(5 files, 0 lines)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="folder.png" width="15" height="13"> 
+<a href="module_pages_data_anzeige_topic.html">topic</a> 
+(2 files, 0 lines)<br>
+
+</p>
+
+<h2>Authors</h2>
+
+  <table rules="groups" summary="All authors and the number of their changes and lines of code in this directory">
+    <colgroup align="left">
+    <colgroup align="right">
+    <colgroup align="right">
+    <colgroup align="right">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th><a href="user_hirsch.html" class="author">hirsch</a></th>
+        <td>32 (100.0%)</td>
+        <td>0 (-)</td>
+        <td>0.0</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<h2>Most Recent Commits</h2>
+
+<dl class="commitlist">
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-31 23:08</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Logik implementieren und die erste Fabrik ist da!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="del">(del)</span>,
+        eventarea.jsp&nbsp;<span class="del">(del)</span>,
+        test_el.jsp&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-29 13:08</span>
+  </dt>
+  <dd>
+    <p class="comment">
+einige neue Actions in struts-config.xml angelegt und<BR>
+verlinkt
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-29 11:51</span>
+  </dt>
+  <dd>
+    <p class="comment">
+NullPointerException bei Anzeiger der Umgebung:<BR>
+Philipp, Du Dödel!!! Beim Logging wird das gesamte sigzht-Objekt<BR>
+übergeben, was natürlich Felder enthält, die NULL sind, was<BR>
+beim Aufruf der toString()-Methode zu einer NPE führt.<BR>
+<BR>
+&lt;title&gt;-Tag wird nicht richtig angezeigt, da derzeit<BR>
+mittels Frames gearbeitet wird. Wenn man dann später<BR>
+aber ohne die Frames arbeitet, sollte die Verlaufsanzeige<BR>
+sinnvolle Daten enthalten. Derzeit wird nur der mittlere<BR>
+Frame verändert; würde man diesen als Lesezeichen setzen,<BR>
+hätte man einen vernünftigen Lesezeichentitel
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-29 11:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+alle HTML-Seiten haben jetzt einen eindeutigen internationalisierten<BR>
+Titel ... somit sollte das Blättern im Verlaufsspeicher des Browsers bei der Ansicht<BR>
+verbessert sein. (Gespräch mit JS, 2004-04-24)
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>,
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-27 19:18</span>
+  </dt>
+  <dd>
+    <p class="comment">
+FAVICON in StrutsConfig und JSP-Seiten eingebunden
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>,
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>,
+        test_el.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-26 12:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Veränderungen an der PACKAGE-Struktur,<BR>
+Hinzufügen neuer VO-Klassen nach gestriger Kotanalyse von<BR>
+Katjas Quelldateien.<BR>
+Nur leere Klassenrümpfe da bisher ...
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-23 23:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Konsistenzproblem in Katjas Daten festgestellt -<BR>
+sie hat beim Einfügen die Schlüssel nicht gepflegt<BR>
+(addVisit())
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-23 22:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige geht jetzt -<BR>
+im JDBC-Treiber fehlte die IMplementierung der Methode<BR>
+ResultSet.getURL(...) -<BR>
+jetzt wird es ebend mittels rs.getString(...) erledigt.
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-23 12:20</span>
+  </dt>
+  <dd>
+    <p class="comment">
+build.xml angepasst,<BR>
+aus picture_url picture gemacht
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-23 10:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+PictureVO angepasst,<BR>
+SQL-Statements verändert.
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-23 00:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+EL eingeschaltet auf allen Seiten
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>,
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 00:42</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ausnahmebehandlung hinzugefügt,<BR>
+Feld in SightVO für ID,<BR>
+eventarea.jsp angepasst<BR>
+application.properties-Werte geschrieben -<BR>
+Logik in NachSehenswürdigkeitenPrüfer für<BR>
+Standortabhängige Abfrage hinzugefügt.
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 16:07</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige der Daten verbessert und application.properties ergänzt
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 14:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Verfeinerung am SightVO:<BR>
+jetzt wird der geometrische Typ mit gespeichert!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 01:24</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JSTL geht ....
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 18:17</span>
+  </dt>
+  <dd>
+    <p class="comment">
+forEach geht noch nicht ....<BR>
+NullPointerException beim Datenauslesen abgefangen
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 17:33</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JSTL-Experimente und Veränderung im Container<BR>
+implements Iterator jetzt ...
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 09:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+PostgisJava eingebaut für SightAnzeige
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-17 00:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+java2html mit API kreuzen (Versuche),<BR>
+build.xml modifiziert,<BR>
+kleine JavaDoc-Fehler rausgemacht
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        test_el.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-16 09:34</span>
+  </dt>
+  <dd>
+    <p class="comment">
+EL geht ....... !!!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>(5 more)</p>
+<div id="generatedby"><p>Generated by <a href="http://statcvs.sf.net">StatCvs</a> v0.2-dev</p>
+</div>
+</body>
+</html>

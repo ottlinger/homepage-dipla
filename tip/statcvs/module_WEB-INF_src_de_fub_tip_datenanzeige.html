@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>StatCvs - Module WEB-INF/src/de/fub/tip/datenanzeige/</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Generator" content="StatCvs v0.2-dev">
+    <link rel="stylesheet" href="http://statcvs.sf.net/stats/statcvs.css" type="text/css">
+  </head>
+
+<body>
+
+
+<h1>Module WEB-INF/src/de/fub/tip/datenanzeige/</h1>
+
+<p><a href="index.html">back to main page</a></p>
+<p class="summaryperiod">
+  Summary Period:
+  <span class="date">2004-02-25</span> to
+  <span class="date">2004-06-11</span> 
+</p>
+
+<h2>Modules</h2>
+
+<p><a href="module.html">[root]</a>/<a href="module_WEB-INF.html">WEB-INF</a>/<a href="module_WEB-INF_src.html">src</a>/<a href="module_WEB-INF_src_de.html">de</a>/<a href="module_WEB-INF_src_de_fub.html">fub</a>/<a href="module_WEB-INF_src_de_fub_tip.html">tip</a>/<strong>datenanzeige</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<img src="folder.png" width="15" height="13"> 
+<a href="module_WEB-INF_src_de_fub_tip_datenanzeige_beans.html">beans</a> 
+(2 files, 177 lines)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="folder.png" width="15" height="13"> 
+<a href="module_WEB-INF_src_de_fub_tip_datenanzeige_container.html">container</a> 
+(6 files, 569 lines)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="folder.png" width="15" height="13"> 
+<a href="module_WEB-INF_src_de_fub_tip_datenanzeige_ormapper.html">ormapper</a> 
+(14 files, 1859 lines)<br>
+
+</p>
+
+<h2>Lines of Code</h2>
+
+<p><img src="loc_module_WEB-INF_src_de_fub_tip_datenanzeige.png" width="640" height="480" alt=""><br>
+<strong>Total Lines Of Code: </strong>
+411 (<span class="date">2004-06-13 13:05</span>)</p>
+
+<h2>Authors</h2>
+
+  <table rules="groups" summary="All authors and the number of their changes and lines of code in this directory">
+    <colgroup align="left">
+    <colgroup align="right">
+    <colgroup align="right">
+    <colgroup align="right">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th><a href="user_hirsch.html" class="author">hirsch</a></th>
+        <td>30 (100.0%)</td>
+        <td>583 (100.0%)</td>
+        <td>19.4</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<h2>Most Recent Commits</h2>
+
+<dl class="commitlist">
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 23:52</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Alle VOs sind jetzt in ihren toString()-Methoden<BR>
+ohne NullPointer-Aufkommen - damit kann man auch halbgeladene<BR>
+Bohnen ausgeben und kriegt keine Fehler mehr !
+    </p>
+    <p class="commitdetails"><strong>18</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+18&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-20 11:12</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SightGruppeVO + Container + Anzeige implementiert.<BR>
+Darstellung angepasst (JSP-Seiten, andere ResourceBundle Inhalte)
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Container.java&nbsp;<span class="change">(+9&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-16 11:06</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Koordinate:<BR>
+serialisierbar gemacht, damit Tomcat beim Speichern<BR>
+von SESSIONDaten auch Koordinaten serialisieren kann.<BR>
+<BR>
+ThemenBearbeiter:<BR>
+Container ist jetzt methodenlokale Variable!<BR>
+DB-Verbindungen werden jetzt sauber geschlossen.
+    </p>
+    <p class="commitdetails"><strong>7</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+7&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-06 23:16</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Refactoring - Anpassen von JavaDoc,<BR>
+Entfernen von LoggingAufrufen.<BR>
+<BR>
+StandortPruefer:<BR>
+jetzt wird auch für die Eingabe von Koordinaten in der DB<BR>
+nach einerm Standortbezeichner gesucht.
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+2&nbsp;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-06 21:13</span>
+  </dt>
+  <dd>
+    <p class="comment">
+ungültige Standorte kommen noch durch!
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-06 20:38</span>
+  </dt>
+  <dd>
+    <p class="comment">
+POLYGON in Koordinate umwandeln angepasst.
+    </p>
+    <p class="commitdetails"><strong>11</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+11&nbsp;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-06 08:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+zusätzliches Logging der Logik eingebaut - damit ich endlich diesen<BR>
+Fehler finde ...
+    </p>
+    <p class="commitdetails"><strong>48</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+48&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-05 00:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+komplettes Dokumentieren der einzelnen Packages nach dem heute<BR>
+rausgefundenen Schema von SUN -<BR>
+juchhe!<BR>
+Viel Tipparbeit - aber jetzt sieht das Javadoc-Resultat<BR>
+wenigstens wie eine Anwendung aus.<BR>
+Die neue statcvs-Version ist auch sehr gut!
+    </p>
+    <p class="commitdetails"><strong>50</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        package.html&nbsp;<span class="new">(new&nbsp;50)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-04-01 11:16</span>
+  </dt>
+  <dd>
+    <p class="comment">
+EreignishistorienBearbeiter mit Fabrik implementiert.<BR>
+EventVO kleine Anpassungen -<BR>
+es wird nur noch von Punkten als Ortsangabe ausgegangen.<BR>
+Das ist sinnvoll, da der User ja immer an einem Punkt ist.<BR>
+Auch die GPS-Ortung erfolgt nicht als Polygon, sondern immer nur<BR>
+als Punkt.
+    </p>
+    <p class="commitdetails"><strong>23</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+23&nbsp;-11)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-30 11:02</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Koordinate: Umwandlung nach Postgis hinzugefügt,<BR>
+Logik für Eventhistorienanzeige angefangen,<BR>
+Container vervollständigt
+    </p>
+    <p class="commitdetails"><strong>26</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+26&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-26 12:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Veränderungen an der PACKAGE-Struktur,<BR>
+Hinzufügen neuer VO-Klassen nach gestriger Kotanalyse von<BR>
+Katjas Quelldateien.<BR>
+Nur leere Klassenrümpfe da bisher ...
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 11:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Holen der Daten aus der Session geht,<BR>
+irgendwas stimmt mit den Parametern für das PreparedStatement nicht
+    </p>
+    <p class="commitdetails"><strong>14</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+14&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 11:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SightVOContainer:<BR>
+Probleme mit ConcurrentModificationException gelöst:<BR>
+Iterator wird bei jedem add() neu erzeugt,<BR>
+EL geht jetzt ohne Fehler und ClassCastException -<BR>
+leider wird nix angezeigt ...
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+12&nbsp;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 17:33</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JSTL-Experimente und Veränderung im Container<BR>
+implements Iterator jetzt ...
+    </p>
+    <p class="commitdetails"><strong>21</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Container.java&nbsp;<span class="change">(+6&nbsp;-5)</span>,
+        SightVOContainer.java&nbsp;<span class="change">(+15&nbsp;-13)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-17 16:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Javadoc fertiggemacht und bei Ausnahmen ein Packages wegreationalisiert<BR>
+bzw. umgestaltet
+    </p>
+    <p class="commitdetails"><strong>59</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Container.java&nbsp;<span class="change">(+6&nbsp;-4)</span>,
+        ContainerInhalt.java&nbsp;<span class="change">(+2&nbsp;-2)</span>,
+        Koordinate.java&nbsp;<span class="change">(+48&nbsp;-14)</span>,
+        SightVOContainer.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-05 15:23</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JavaDoc - Umstellung von lokalen auf Klassenvariablen bei Actions
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+4&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-05 12:01</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umstellung auf andere PostresJDBC und PostGIS.jdbc von Steven<BR>
+EL-Versuche
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-04 10:38</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Sehenswürdigkeit Inhalt aus DB werden in Bean gelesen
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+9&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-03 18:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+umgestellt auf besseres Design:<BR>
+Actions geben nur dataSource-Komponente an<BR>
+Pruefer (= BusinessObject), keine Connection mehr!
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+10&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-03 17:48</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Datenanzeige aller interessanten Koordinaten
+    </p>
+    <p class="commitdetails"><strong>40</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+40&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>(4 more)</p>
+<div id="generatedby"><p>Generated by <a href="http://statcvs.sf.net">StatCvs</a> v0.2-dev</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,1102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>StatCvs - Commit Log (Page 1 of 8)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Generator" content="StatCvs v0.2-dev">
+    <link rel="stylesheet" href="http://statcvs.sf.net/stats/statcvs.css" type="text/css">
+  </head>
+
+<body>
+
+
+<h1>Commit Log (Page 1 of 8)</h1>
+
+<p><a href="index.html">back to main page</a></p>
+<p>Pages: 1 <a href="commit_log_page_2.html">2</a> <a href="commit_log_page_3.html">3</a> <a href="commit_log_page_4.html">4</a> <a href="commit_log_page_5.html">5</a> <a href="commit_log_page_6.html">6</a> <a href="commit_log_page_7.html">7</a> <a href="commit_log_page_8.html">8</a> <a href="commit_log_page_2.html">Next &raquo;</a> </p>
+<p class="summaryperiod">
+  Summary Period:
+  <span class="date">2004-06-13</span> to
+  <span class="date">2004-05-20</span>  (Commits 317-366 of 366)
+</p>
+<dl class="commitlist">
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-13 13:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+letzte Version, die auf CD gehen soll zur Probe einchecken und dann<BR>
+auf MasterCD brennen ...
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-12 00:19</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Kosmetika an der Ansicht -<BR>
+leerzeilen,<BR>
+Tabelle statt nur hintereinander schreiben (information.jsp);<BR>
+Tippfehler in RessourceBundle beseitigt
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>,
+        application_de.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>,
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-12 00:09</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ausgabe angepasst!<BR>
+* Sehenswürdigkeitsinfo für information.jsp hinzugefügt<BR>
+* Kosmetik an den Tabellen
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>,
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 23:52</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Alle VOs sind jetzt in ihren toString()-Methoden<BR>
+ohne NullPointer-Aufkommen - damit kann man auch halbgeladene<BR>
+Bohnen ausgeben und kriegt keine Fehler mehr !
+    </p>
+    <p class="commitdetails"><strong>178</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+18&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/beans</strong>:
+        HtmlCheckboxDarstellungBean.java&nbsp;<span class="change">(+10&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        CityVO.java&nbsp;<span class="change">(+12&nbsp;-4)</span>,
+        CountryVO.java&nbsp;<span class="change">(+11&nbsp;-4)</span>,
+        EinzeilerVO.java&nbsp;<span class="change">(+4&nbsp;-3)</span>,
+        EreignishistorieneintragVO.java&nbsp;<span class="change">(+17&nbsp;-4)</span>,
+        EventVO.java&nbsp;<span class="change">(+16&nbsp;-4)</span>,
+        InformationVO.java&nbsp;<span class="change">(+15&nbsp;-4)</span>,
+        LocationVO.java&nbsp;<span class="change">(+10&nbsp;-3)</span>,
+        PictureVO.java&nbsp;<span class="change">(+17&nbsp;-9)</span>,
+        SightGruppeVO.java&nbsp;<span class="change">(+16&nbsp;-8)</span>,
+        SightVO.java&nbsp;<span class="change">(+3&nbsp;-8)</span>,
+        TopicVO.java&nbsp;<span class="change">(+12&nbsp;-4)</span>,
+        UserdataVO.java&nbsp;<span class="change">(+17&nbsp;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 23:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+city und country wurden nicht auf isNull() geprüft! in toString()-Aufruf,<BR>
+zusätzlich jetzt logger eingebaut, um zu sehen, ob das der letzte Aufruf in catalina.out ist!
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+12&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 22:48</span>
+  </dt>
+  <dd>
+    <p class="comment">
+toString()-Methode nun garantiert ohne NullWerte gemacht!
+    </p>
+    <p class="commitdetails"><strong>15</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+15&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 22:34</span>
+  </dt>
+  <dd>
+    <p class="comment">
+neue Vermutung:<BR>
+in inspectvariables.jsp tauchen NullPointerExceptions auf!<BR>
+<BR>
+Jetzt ist die ganze Sache NullPointerException-proof !
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/include</strong>:
+        inspectvariables.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 22:29</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anpassung der RessourceBundles an neue Seiten<BR>
+- data/anzeige/sight/information.jsp und eventarea.jsp
+    </p>
+    <p class="commitdetails"><strong>37</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+4&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>,
+        application_de.properties&nbsp;<span class="change">(+15&nbsp;-2)</span>,
+        application_en.properties&nbsp;<span class="change">(+15&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 22:11</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anpassen des Verweises - vll. wird die NullPointerException auch<BR>
+durch Verweis ausgelöst ... hoffentlich wird inspectvariables.jsp ausgeführt
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 21:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+weitere Suche nach Exception - Parametertransport klappt in Action,<BR>
+jetzt fehlen Verweise in information.jsp -.... mal sehn.
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 21:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+immer noch auf der Suche nach der NullPointerException
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 21:25</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Gucken, ob SightVO korrekt weitergegeben wird.
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 21:08</span>
+  </dt>
+  <dd>
+    <p class="comment">
+loggingausgaben zur fehlersuche hinzugefügt - immer noch NullPointerException bei irgendeinem<BR>
+SightVO-Objekt
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 20:58</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Falscher Verweis auf SightVO war Ursache für NullPointerException
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+5&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 16:55</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SQL so angepasst, das doppelt vorkommende Sachen (wie name) jeweils als s.name AS sname und t.name as tname selektiert werden.<BR>
+Dann wird rs.getString("sname/tname") gemacht!
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 16:49</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anpassungen - t.name wird nicht ausgelesen
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 16:43</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anpassen der Inhalte zur Infoanzeige
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>,
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 16:35</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige verfeinert - zum Debugging mal alles anzeigenlassen ...
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>,
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 16:30</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige der Sehenswürdigkeit verfeinert -<BR>
+NullPointerException kam beim Logging ....
+    </p>
+    <p class="commitdetails"><strong>7</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 16:22</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Die Sehenswürdigkeit, zu der Infos angezeigt werden, wird jetzt als<BR>
+separates Objekt gespeichert, damit die Ansicht Infos dazu anzeigen kann.
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+12&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 14:56</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Veränderungen an der Ansicht gemacht -<BR>
+bis Eclipse abgestürzt ist / bloickiert hat.<BR>
+Das macht das Arbeiten echt bescheiden!<BR>
+<BR>
+weitere Anpassungen nötig!
+    </p>
+    <p class="commitdetails"><strong>13</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        .classpath&nbsp;<span class="change">(+1&nbsp;-1)</span>,
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+12&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 02:21</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Endstand: SQL-Statements generieren noch unterschiedliche Ergebnisse -<BR>
+aber erst mal pennen ... Anzeige an sich geht!<BR>
+TODO: Internationalisierung anpassen!
+    </p>
+    <p class="commitdetails"><strong>13</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+13&nbsp;-26)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 02:00</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Sehenswürdigkeit wurde nicht richtig eingeschränkt im SQL-Statement -<BR>
+jetzt sollte es gehen! Zum Glück gibt's die DB-Kosole :-)
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+4&nbsp;-14)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 01:48</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Logging des SQL-Statements - es wird immer noch zu viel angezueigt
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+12&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 01:42</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SELECT Statement ist fehlerhaft - es werden alle infos angezeigt!
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 01:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Bei Datenbankabfragen dürfen zum Auslesen der Parameter nicht<BR>
+die Tabellenaliase aus dem SQL-Statement benutzt werden!<BR>
+Das bringt immer ein "xyz - spaltenname nicht vorhanden"
+    </p>
+    <p class="commitdetails"><strong>13</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+13&nbsp;-14)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 01:31</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fehler: t.description geht nicht - wahrscheinlich haben Katjas Daten wieder eine Macke .... hab aber keine Lust diesen Fehler in den Beispieldaten zu suchen!
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 01:21</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Debuugingausgabe für informationen -<BR>
+vll. werden sie auch nicht richtig gespeichert, da die Anzeige immer leer ist
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 01:00</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Typo
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 00:56</span>
+  </dt>
+  <dd>
+    <p class="comment">
+URL-Parameter lässt sich nur mit<BR>
+getParameter(name) auslesen!!!<BR>
+Geht jetzt!
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+2&nbsp;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-11 00:21</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Logdatei zeigt, dass der URL-Parameter zur Infoanzeige nicht richtig ausgelesen wird. Debuggingausgaben und Korrektur in Action-Klasse
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+6&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 18:22</span>
+  </dt>
+  <dd>
+    <p class="comment">
+weitere Anpassungen der Logik der Informationsanzeige - erster Test
+    </p>
+    <p class="commitdetails"><strong>199</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+61&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+138&nbsp;-10)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>,
+        information.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 16:17</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anpassung der Ansicht auf die EventArea-Sachen:<BR>
+* 1) Liste von Sehenswürdigkeitsgruppen<BR>
+* 2) Tabelle der genauen Sehenswürdigkeiten mit Name und Bild und<BR>
+more Details-Link
+    </p>
+    <p class="commitdetails"><strong>22</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+22&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 15:29</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fehler war, dass in der Action der Container falsch gespeichert wurde!
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 14:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umlaut in strutsconfig hat Absturz verursacht - MIST!<BR>
+Ansonsten Fehlerchen in Javadoc angepasst (void Methoden hatten @return-Tag)
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+4&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        SightGruppenBearbeiter.java&nbsp;<span class="change">(+1&nbsp;-3)</span>,
+        ThemenBearbeiter.java&nbsp;<span class="change">(+1&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 13:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SELECT angepasst und Debuggingausgabe hinzugefügt
+    </p>
+    <p class="commitdetails"><strong>54</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        .classpath&nbsp;<span class="change">(+31&nbsp;-31)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="change">(+1&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="change">(+1&nbsp;-2)</span>,
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+21&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        information.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 13:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Informationsanzeige: Klassenrümpfe erstellt und in Config eingebunden.<BR>
+EclipseProbleme (100 %CPU) bleiben wieder.
+    </p>
+    <p class="commitdetails"><strong>709</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+6&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ShowInformationAction.java&nbsp;<span class="new">(new&nbsp;57)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/factory</strong>:
+        InformationsAnzeigerFactory.java&nbsp;<span class="new">(new&nbsp;62)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        InformationsAnzeiger.java&nbsp;<span class="new">(new&nbsp;36)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application_de.properties&nbsp;<span class="new">(new&nbsp;274)</span>,
+        application_en.properties&nbsp;<span class="new">(new&nbsp;274)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 11:43</span>
+  </dt>
+  <dd>
+    <p class="comment">
+PreparedStatement wurde nicht gefüllt - entsprechend angepasst und mit Sinn geschrieben
+    </p>
+    <p class="commitdetails"><strong>35</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+35&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-10 11:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umgebungsanzeige so verändert, dass zusätzlich die Bilder der<BR>
+Sehenswürdigkeiten mit geladen werden.<BR>
+Dazu Anpassungen in der Logikkomponenten und der View!<BR>
+Ansonsten Kosmetik an Javadoc und Zeilenumbrüchen.
+    </p>
+    <p class="commitdetails"><strong>289</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+16&nbsp;-7)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+4&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+269&nbsp;-94)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige/sight</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-09 00:10</span>
+  </dt>
+  <dd>
+    <p class="comment">
+"Häkchen machen" eingebaut,<BR>
+in Datenbank bei Themen- und Sehenswürdigkeitsgruppenanzeige die sinnlosen Punkte hinter Stichworten und Halbsätzen entfernt.<BR>
+Sprachenauswahl funktioniert zwischen de und en!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 10:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Übersetzung beendet.<BR>
+Auf Java15beta2 umgestiegen - mal sehen, ob CPU wieder blockiert.
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 02:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+wieder eine Standarddatei hinzugefügt
+    </p>
+    <p class="commitdetails"><strong>274</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="new">(new&nbsp;274)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 02:03</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Namensfehler -<BR>
+statt appl.properties_en muss es<BR>
+appl_en.properties sein!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties_de&nbsp;<span class="del">(del)</span>,
+        application.properties_en&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 01:56</span>
+  </dt>
+  <dd>
+    <p class="comment">
+siehe letzem Kommentar!
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 01:54</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Versuch de und en als Sprachen zu etablieren.<BR>
+Dazu die Standarddatei wegnehmen (ohne Länderkürzel)
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties_de&nbsp;<span class="new">(new&nbsp;0)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 01:49</span>
+  </dt>
+  <dd>
+    <p class="comment">
+weitergeschrieben an den Inhalten
+    </p>
+    <p class="commitdetails"><strong>95</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>,
+        application.properties_en&nbsp;<span class="change">(+92&nbsp;-92)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-06-08 00:52</span>
+  </dt>
+  <dd>
+    <p class="comment">
+englische Ressourcendatei hinzugefügt;<BR>
+deren Inhalte müssen noch stückweise angepasst werden.
+    </p>
+    <p class="commitdetails"><strong>92</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties_en&nbsp;<span class="new">(new&nbsp;92)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-24 11:27</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Generiren...
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-20 10:27</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Rechtschreibfehler beseitigt in Titelseite, die auch im Anhang ist
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        cvslog&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        package.html&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        package.html&nbsp;<span class="change">(+1&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        package.html&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-05-20 10:19</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Rechtschreibfehler entfernt
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>Pages: 1 <a href="commit_log_page_2.html">2</a> <a href="commit_log_page_3.html">3</a> <a href="commit_log_page_4.html">4</a> <a href="commit_log_page_5.html">5</a> <a href="commit_log_page_6.html">6</a> <a href="commit_log_page_7.html">7</a> <a href="commit_log_page_8.html">8</a> <a href="commit_log_page_2.html">Next &raquo;</a> </p>
+<div id="generatedby"><p>Generated by <a href="http://statcvs.sf.net">StatCvs</a> v0.2-dev</p>
+</div>
+</body>
+</html>

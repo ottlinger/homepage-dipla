@@ -1,0 +1,1514 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>StatCvs - Commit Log (Page 7 of 8)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Generator" content="StatCvs v0.2-dev">
+    <link rel="stylesheet" href="http://statcvs.sf.net/stats/statcvs.css" type="text/css">
+  </head>
+
+<body>
+
+
+<h1>Commit Log (Page 7 of 8)</h1>
+
+<p><a href="index.html">back to main page</a></p>
+<p>Pages: <a href="commit_log_page_6.html">&laquo; Previous</a> <a href="commit_log.html">1</a> <a href="commit_log_page_2.html">2</a> <a href="commit_log_page_3.html">3</a> <a href="commit_log_page_4.html">4</a> <a href="commit_log_page_5.html">5</a> <a href="commit_log_page_6.html">6</a> 7 <a href="commit_log_page_8.html">8</a> <a href="commit_log_page_8.html">Next &raquo;</a> </p>
+<p class="summaryperiod">
+  Summary Period:
+  <span class="date">2004-03-23</span> to
+  <span class="date">2004-02-29</span>  (Commits 17-66 of 366)
+</p>
+<dl class="commitlist">
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-23 00:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+EL eingeschaltet auf allen Seiten
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages</strong>:
+        anmeldung.jsp&nbsp;<span class="change">(changed)</span>,
+        index.jsp&nbsp;<span class="change">(changed)</span>,
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data</strong>:
+        muster.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>,
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 18:19</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Es kommen keine POSTGRESQL-Fehler mehr -<BR>
+&lt;b&gt;NIEMALS&lt;/b&gt; in  ' maskieren!!!!<BR>
+Das geht immer schief - KACKE!
+    </p>
+    <p class="commitdetails"><strong>71</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+35&nbsp;-6)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+33&nbsp;-22)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 17:28</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ersetzungsidee von<BR>
+Mailingliste scheint nicht so richtig zu gehen ... komisch!<BR>
+Statement zwecks debugging reduziert!
+    </p>
+    <p class="commitdetails"><strong>38</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+9&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+29&nbsp;-19)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 12:49</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Maskierung verhindert PreparedStatement bei Verwendung von<BR>
+PostgresFunktionen wie 'BOX3D x y z w' .... sonst geht<BR>
+alles: Datentransport und Anzeige :-^
+    </p>
+    <p class="commitdetails"><strong>40</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+8&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        UserdataVO.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+5&nbsp;-6)</span>,
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+24&nbsp;-11)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 11:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Holen der Daten aus der Session geht,<BR>
+irgendwas stimmt mit den Parametern für das PreparedStatement nicht
+    </p>
+    <p class="commitdetails"><strong>180</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+50&nbsp;-43)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+14&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+21&nbsp;-3)</span>,
+        PictureVO.java&nbsp;<span class="change">(+30&nbsp;-6)</span>,
+        UserdataVO.java&nbsp;<span class="change">(+46&nbsp;-8)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+15&nbsp;-1)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+4&nbsp;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 01:09</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fehlerabfangen verbessert und Parameter entsprechend angepasst auf<BR>
+neue Ausnahmen, Auslesen der Werte aus den request-Parametern
+    </p>
+    <p class="commitdetails"><strong>43</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+5&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+34&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages/data/error</strong>:
+        loginProblem.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-22 00:42</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ausnahmebehandlung hinzugefügt,<BR>
+Feld in SightVO für ID,<BR>
+eventarea.jsp angepasst<BR>
+application.properties-Werte geschrieben -<BR>
+Logik in NachSehenswürdigkeitenPrüfer für<BR>
+Standortabhängige Abfrage hinzugefügt.
+    </p>
+    <p class="commitdetails"><strong>233</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ViewAllSightsAction.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+3&nbsp;-2)</span>,
+        SightVO.java&nbsp;<span class="change">(+21&nbsp;-1)</span>,
+        UserdataVO.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+9&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+22&nbsp;-2)</span>,
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+101&nbsp;-15)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+11&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        NoUserLoggedInException.java&nbsp;<span class="new">(new&nbsp;50)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+12&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        eventarea.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-21 23:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+PictureVO setter und getter sind da,<BR>
+fehlt nur noch die Übertragung in die DB und<BR>
+die Anwendung ;-^
+    </p>
+    <p class="commitdetails"><strong>131</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        PictureVO.java&nbsp;<span class="change">(+131&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-21 22:55</span>
+  </dt>
+  <dd>
+    <p class="comment">
+PictureVO zur besserenDarstellung von Bildern hinzugefügt!
+    </p>
+    <p class="commitdetails"><strong>22</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        PictureVO.java&nbsp;<span class="new">(new&nbsp;22)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 16:16</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Work in Progress bei EventAreaAction
+    </p>
+    <p class="commitdetails"><strong>39</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+39&nbsp;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 16:07</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Anzeige der Daten verbessert und application.properties ergänzt
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        antDeployWAR.sh&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+10&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/css</strong>:
+        style.css&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 14:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Verfeinerung am SightVO:<BR>
+jetzt wird der geometrische Typ mit gespeichert!
+    </p>
+    <p class="commitdetails"><strong>70</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+25&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+20&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+25&nbsp;-19)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 12:19</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SightVO fertig
+    </p>
+    <p class="commitdetails"><strong>11</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+11&nbsp;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 12:16</span>
+  </dt>
+  <dd>
+    <p class="comment">
+ViewObject - Schnittstelle zum vereinfachten Logging eingeführt
+    </p>
+    <p class="commitdetails"><strong>48</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+15&nbsp;-2)</span>,
+        ViewObject.java&nbsp;<span class="new">(new&nbsp;33)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 11:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+SightVOContainer:<BR>
+Probleme mit ConcurrentModificationException gelöst:<BR>
+Iterator wird bei jedem add() neu erzeugt,<BR>
+EL geht jetzt ohne Fehler und ClassCastException -<BR>
+leider wird nix angezeigt ...
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+12&nbsp;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-19 01:24</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JSTL geht ....
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 18:17</span>
+  </dt>
+  <dd>
+    <p class="comment">
+forEach geht noch nicht ....<BR>
+NullPointerException beim Datenauslesen abgefangen
+    </p>
+    <p class="commitdetails"><strong>14</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+14&nbsp;-18)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 17:33</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JSTL-Experimente und Veränderung im Container<BR>
+implements Iterator jetzt ...
+    </p>
+    <p class="commitdetails"><strong>55</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        shutdown.sh&nbsp;<span class="new">(new)</span>,
+        startup.sh&nbsp;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Container.java&nbsp;<span class="change">(+6&nbsp;-5)</span>,
+        SightVOContainer.java&nbsp;<span class="change">(+15&nbsp;-13)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+28&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+6&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 15:37</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Problem mit POSTGIS:<BR>
+aus dem Struts-DB-Pool heraus kann man die Verbindung nicht<BR>
+auf eine PGConnection casten - daher ist es nicht<BR>
+möglich die entsprechenden geometrischen Typen<BR>
+hinzuzufügen.<BR>
+Ein Workaround mit einer lokal hergestellten Datenbank<BR>
+verbindung scheitert irgendwie an EL@FUB. Es kommt nur ein<BR>
+Timeout - mail an Steven ist raus (1439)
+    </p>
+    <p class="commitdetails"><strong>79</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+76&nbsp;-52)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        anmeldung.jsp&nbsp;<span class="change">(changed)</span>,
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 13:11</span>
+  </dt>
+  <dd>
+    <p class="comment">
+eltest.do<BR>
+Login angefangen zu erweitern, so dass ein Ortsname auch<BR>
+angegeben werden kann -<BR>
+die Logik in der DB fehlt noch überall!!!!
+    </p>
+    <p class="commitdetails"><strong>120</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LoginActionForm.java&nbsp;<span class="change">(+22&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+9&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+25&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+23&nbsp;-15)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+36&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+5&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        anmeldung.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-18 09:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+PostgisJava eingebaut für SightAnzeige
+    </p>
+    <p class="commitdetails"><strong>29</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+5&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/lib</strong>:
+        java2html.jar&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+22&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-17 16:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Javadoc fertiggemacht und bei Ausnahmen ein Packages wegreationalisiert<BR>
+bzw. umgestaltet
+    </p>
+    <p class="commitdetails"><strong>215</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+5&nbsp;-5)</span>,
+        LoginAction.java&nbsp;<span class="change">(+5&nbsp;-5)</span>,
+        LogoutAction.java&nbsp;<span class="change">(+12&nbsp;-10)</span>,
+        ViewAllSightsAction.java&nbsp;<span class="change">(+10&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Container.java&nbsp;<span class="change">(+6&nbsp;-4)</span>,
+        ContainerInhalt.java&nbsp;<span class="change">(+2&nbsp;-2)</span>,
+        Koordinate.java&nbsp;<span class="change">(+48&nbsp;-14)</span>,
+        SightVOContainer.java&nbsp;<span class="change">(+3&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+9&nbsp;-4)</span>,
+        SightVO.java&nbsp;<span class="change">(+21&nbsp;-13)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+18&nbsp;-14)</span>,
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+12&nbsp;-7)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+16&nbsp;-11)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        InvalidLocationException.java&nbsp;<span class="new">(new&nbsp;26)</span>,
+        NoDataFoundException.java&nbsp;<span class="change">(+10&nbsp;-7)</span>,
+        NoSightsAvailableException.java&nbsp;<span class="change">(+5&nbsp;-4)</span>,
+        UserNotFoundException.java&nbsp;<span class="change">(+7&nbsp;-6)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-17 11:53</span>
+  </dt>
+  <dd>
+    <p class="comment">
+javadoc
+    </p>
+    <p class="commitdetails"><strong>26</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+16&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip</strong>:
+        Log4jStrutsPlugin.java&nbsp;<span class="change">(+6&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LoginActionForm.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-17 11:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+javadoc
+    </p>
+    <p class="commitdetails"><strong>20</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip</strong>:
+        Log4jStrutsPlugin.java&nbsp;<span class="change">(+5&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LoginActionForm.java&nbsp;<span class="change">(+12&nbsp;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-17 00:47</span>
+  </dt>
+  <dd>
+    <p class="comment">
+java2html mit API kreuzen (Versuche),<BR>
+build.xml modifiziert,<BR>
+kleine JavaDoc-Fehler rausgemacht
+    </p>
+    <p class="commitdetails"><strong>24</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+24&nbsp;-9)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        test_el.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-16 09:59</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umstellung des Classpath in build.xml auf neue servlet-api und die entsprechenden Postgresql und postgis treiber<BR>
+(um Murphy zu vermeiden!)
+    </p>
+    <p class="commitdetails"><strong>23</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+23&nbsp;-9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-16 09:34</span>
+  </dt>
+  <dd>
+    <p class="comment">
+EL geht ....... !!!
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        .classpath&nbsp;<span class="change">(+6)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-05 15:23</span>
+  </dt>
+  <dd>
+    <p class="comment">
+JavaDoc - Umstellung von lokalen auf Klassenvariablen bei Actions
+    </p>
+    <p class="commitdetails"><strong>59</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+5&nbsp;-3)</span>,
+        web.xml&nbsp;<span class="change">(+7&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/lib</strong>:
+        dom.jar&nbsp;<span class="new">(new)</span>,
+        jaxp-api.jar&nbsp;<span class="new">(new)</span>,
+        jdbc2_0-stdext.jar&nbsp;<span class="new">(new)</span>,
+        sax.jar&nbsp;<span class="new">(new)</span>,
+        xalan.jar&nbsp;<span class="new">(new)</span>,
+        xercesImpl.jar&nbsp;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip</strong>:
+        Log4jStrutsPlugin.java&nbsp;<span class="change">(+1&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LoginActionForm.java&nbsp;<span class="change">(+28&nbsp;-9)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+3&nbsp;-2)</span>,
+        LoginAction.java&nbsp;<span class="change">(+3&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+4&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+8&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-05 13:45</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Apache Jakarta - JSTL-TLDs eingefügt
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        c.tld&nbsp;<span class="change">(changed)</span>,
+        fmt.tld&nbsp;<span class="change">(changed)</span>,
+        fn.tld&nbsp;<span class="new">(new)</span>,
+        permittedTaglibs.tld&nbsp;<span class="new">(new)</span>,
+        scriptfree.tld&nbsp;<span class="new">(new)</span>,
+        sql.tld&nbsp;<span class="change">(changed)</span>,
+        x.tld&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/lib</strong>:
+        jstl.jar&nbsp;<span class="change">(changed)</span>,
+        standard.jar&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-05 13:26</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Versuch auf lokale Verweise bei JSTL umzustellen
+    </p>
+    <p class="commitdetails"><strong>86</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        web.xml&nbsp;<span class="change">(+86&nbsp;-69)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-05 12:01</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umstellung auf andere PostresJDBC und PostGIS.jdbc von Steven<BR>
+EL-Versuche
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        .classpath&nbsp;<span class="change">(+5&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/lib</strong>:
+        pg73jdbc3.jar&nbsp;<span class="del">(del)</span>,
+        postgis.jar&nbsp;<span class="new">(new)</span>,
+        postgres7.3.jar&nbsp;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+3&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+4&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-04 10:38</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Sehenswürdigkeit Inhalt aus DB werden in Bean gelesen
+    </p>
+    <p class="commitdetails"><strong>82</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+9&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+46&nbsp;-12)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+27&nbsp;-10)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-04 01:19</span>
+  </dt>
+  <dd>
+    <p class="comment">
+im Menü hatte ein "-StringBeender gefehlt - dadurch gingen zwei Links nicht richtig.<BR>
+Verweis mit absoluten Links muss berücksichtigen, von wo die<BR>
+Sachen starten -&gt; im Fall des Hauptmenüs:<BR>
+../api/index.html, da innerhalb von pages!
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-03 18:36</span>
+  </dt>
+  <dd>
+    <p class="comment">
+umgestellt auf besseres Design:<BR>
+Actions geben nur dataSource-Komponente an<BR>
+Pruefer (= BusinessObject), keine Connection mehr!
+    </p>
+    <p class="commitdetails"><strong>214</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ViewAllSightsAction.java&nbsp;<span class="change">(+34&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+10&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+87&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="change">(+72&nbsp;-9)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        NoSightsAvailableException.java&nbsp;<span class="change">(+9&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-03 17:48</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Datenanzeige aller interessanten Koordinaten
+    </p>
+    <p class="commitdetails"><strong>154</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+5&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="change">(+3&nbsp;-4)</span>,
+        ViewAllSightsAction.java&nbsp;<span class="change">(+21&nbsp;-6)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        SightVOContainer.java&nbsp;<span class="change">(+40&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        SightVO.java&nbsp;<span class="change">(+4&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        NachSehenswuerdigkeitenPruefer.java&nbsp;<span class="new">(new&nbsp;56)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        NoSightsAvailableException.java&nbsp;<span class="new">(new&nbsp;25)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-03 17:24</span>
+  </dt>
+  <dd>
+    <p class="comment">
+neue Container zur Anzeige
+    </p>
+    <p class="commitdetails"><strong>43</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+5&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        ViewAllSightsAction.java&nbsp;<span class="new">(new&nbsp;6)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Container.java&nbsp;<span class="change">(+9&nbsp;-5)</span>,
+        SightVOContainer.java&nbsp;<span class="new">(new&nbsp;2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        Sight.java&nbsp;<span class="del">(del)</span>,
+        SightVO.java&nbsp;<span class="new">(new&nbsp;19)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 18:06</span>
+  </dt>
+  <dd>
+    <p class="comment">
+NIEMALS ---&gt; statt --&gt;, um Kommentare<BR>
+zu beenden ... damit kommentiert man den Rest weg!<BR>
+<BR>
+JA - XML ist Kacke ;-^
+    </p>
+    <p class="commitdetails"><strong>11</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+7&nbsp;-7)</span>,
+        struts-config.xml&nbsp;<span class="change">(+4&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 16:31</span>
+  </dt>
+  <dd>
+    <p class="comment">
+build.xml modifiziert ...
+    </p>
+    <p class="commitdetails"><strong>15</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+15&nbsp;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 16:14</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Umgebungsanzeige:<BR>
+Dateien vorbereitet und Struts-Regeln geschrieben sowie<BR>
+ActionKlassenRümpfe geschrieben
+    </p>
+    <p class="commitdetails"><strong>76</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+18&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        EventAreaAction.java&nbsp;<span class="new">(new&nbsp;45)</span>,
+        LogoutAction.java&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+11&nbsp;-3)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>,
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data/anzeige</strong>:
+        dbinhalte.jsp&nbsp;<span class="new">(new)</span>,
+        eventarea.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 13:20</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Login geht astrein, Logout klappt auch, nur MessageAnzeige noch nicht nach erfolgtem Logout
+    </p>
+    <p class="commitdetails"><strong>91</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+27&nbsp;-46)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LogoutAction.java&nbsp;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LogoutAction.java&nbsp;<span class="new">(new&nbsp;57)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+7&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>,
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 10:27</span>
+  </dt>
+  <dd>
+    <p class="comment">
+LogoutAnfang und Umstellung auf JDK1.4.2
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LogoutAction.java&nbsp;<span class="new">(new&nbsp;0)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+5&nbsp;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 10:03</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ordnerwirrwarr
+    </p>
+    <p class="commitdetails"><strong>25</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+19&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+6&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 02:23</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Login geht komplett - JUCHHE!
+    </p>
+    <p class="commitdetails"><strong>7</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+5&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 01:50</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Namensstandard bei Ausnahmen eingehalten,<BR>
+Koordinateneingabeprüfung in LoginAction eingebaut
+    </p>
+    <p class="commitdetails"><strong>212</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actionforms</strong>:
+        LoginActionForm.java&nbsp;<span class="change">(+2&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+66&nbsp;-17)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige</strong>:
+        Koordinate.java&nbsp;<span class="change">(+13&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="change">(+19&nbsp;-2)</span>,
+        UserdataVO.java&nbsp;<span class="change">(+1&nbsp;-11)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank</strong>:
+        DBFunktionen.java&nbsp;<span class="change">(+5&nbsp;-5)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+4&nbsp;-4)</span>,
+        StandortPruefer.java&nbsp;<span class="change">(+29&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        NoDataFound.java&nbsp;<span class="del">(del)</span>,
+        NoDataFoundException.java&nbsp;<span class="new">(new&nbsp;37)</span>,
+        UserNotFound.java&nbsp;<span class="del">(del)</span>,
+        UserNotFoundException.java&nbsp;<span class="new">(new&nbsp;24)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+12&nbsp;-2)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-02 00:40</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Koordinate wird auch semantisch und syntaktisch prüfbar, so dass später<BR>
+mittels GPS darauf gearbeitet werden kann.<BR>
+Durch diese Klassen kann dann die Koordinateneingabe aus<BR>
+irgendeiner anderen Komponente erfolgen oder via<BR>
+Bluetooth übertragen werden oder wie auch immer ...<BR>
+alles bleibt unabhängig vom StrutsFramework und<BR>
+ist allein modeliert!
+    </p>
+    <p class="commitdetails"><strong>68</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenanzeige/ormapper</strong>:
+        LocationVO.java&nbsp;<span class="new">(new&nbsp;24)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        StandortPruefer.java&nbsp;<span class="new">(new&nbsp;44)</span>
+      </li>
+      <li>
+        <strong>pages/menu</strong>:
+        menue.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-01 18:21</span>
+  </dt>
+  <dd>
+    <p class="comment">
+Es geht - ? statt '?' bei PreparedStatement und Typangabe in struts-config.xml!
+    </p>
+    <p class="commitdetails"><strong>121</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+4&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+101&nbsp;-108)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+16&nbsp;-13)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-01 17:21</span>
+  </dt>
+  <dd>
+    <p class="comment">
+jetzt erkennt er zumindest die Verbindung
+    </p>
+    <p class="commitdetails"><strong>60</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+41&nbsp;-9)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+13&nbsp;-7)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+6&nbsp;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-01 15:38</span>
+  </dt>
+  <dd>
+    <p class="comment">
+DBPool ... Fehlersuche geht weiter.
+    </p>
+    <p class="commitdetails"><strong>106</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        .classpath&nbsp;<span class="change">(+3)</span>,
+        antDeployWAR.sh&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+8&nbsp;-3)</span>,
+        struts-config.xml&nbsp;<span class="change">(+55&nbsp;-96)</span>,
+        web.xml&nbsp;<span class="change">(+1&nbsp;-6)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/lib</strong>:
+        commons-dbcp.jar&nbsp;<span class="new">(new)</span>,
+        commons-pool.jar&nbsp;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+29&nbsp;-9)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+10&nbsp;-9)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        index.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>pages/data/error</strong>:
+        dbProblem.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-03-01 11:05</span>
+  </dt>
+  <dd>
+    <p class="comment">
+dbProblemBehandlung eingefügt, ebenso Fehlerbehandlung in LoginAction - Problem mit NullPointer Exception noch ungelöst ...
+    </p>
+    <p class="commitdetails"><strong>72</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        struts-config.xml&nbsp;<span class="change">(+7&nbsp;-7)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+46&nbsp;-23)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+6&nbsp;-12)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+13&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages/data/error</strong>:
+        dbProblem.jsp&nbsp;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt>
+    <a href="user_hirsch.html" class="author">hirsch</a>
+    <span class="date">2004-02-29 15:46</span>
+  </dt>
+  <dd>
+    <p class="comment">
+DB-Verbindung muss noch auf/abgebaut werden - daher die derzeitige NullPointerException
+    </p>
+    <p class="commitdetails"><strong>89</strong> lines of code changed in:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>WEB-INF</strong>:
+        build.xml&nbsp;<span class="change">(+10&nbsp;-4)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/actions</strong>:
+        LoginAction.java&nbsp;<span class="change">(+17&nbsp;-8)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/datenbank/logik</strong>:
+        LoginPruefer.java&nbsp;<span class="change">(+50&nbsp;-21)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/exceptions</strong>:
+        NoDataFound.java&nbsp;<span class="change">(+2&nbsp;-7)</span>,
+        UserNotFound.java&nbsp;<span class="change">(+8&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>WEB-INF/src/de/fub/tip/resources</strong>:
+        application.properties&nbsp;<span class="change">(+2&nbsp;-1)</span>
+      </li>
+      <li>
+        <strong>pages</strong>:
+        menue.jsp&nbsp;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>Pages: <a href="commit_log_page_6.html">&laquo; Previous</a> <a href="commit_log.html">1</a> <a href="commit_log_page_2.html">2</a> <a href="commit_log_page_3.html">3</a> <a href="commit_log_page_4.html">4</a> <a href="commit_log_page_5.html">5</a> <a href="commit_log_page_6.html">6</a> 7 <a href="commit_log_page_8.html">8</a> <a href="commit_log_page_8.html">Next &raquo;</a> </p>
+<div id="generatedby"><p>Generated by <a href="http://statcvs.sf.net">StatCvs</a> v0.2-dev</p>
+</div>
+</body>
+</html>
