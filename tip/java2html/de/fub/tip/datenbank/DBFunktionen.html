@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter V4.1 2004 by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="2" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+DBFunktionen.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#008000">/*</font><br/>
+<font color="#808080">002</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Created&nbsp;on&nbsp;16.02.2004</font><br/>
+<font color="#808080">003</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">004</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">de.fub.tip.datenbank;</font><br/>
+<font color="#808080">005</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">006</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.sql.*;</font><br/>
+<font color="#808080">007</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">javax.sql.DataSource;</font><br/>
+<font color="#808080">008</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">009</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.apache.log4j.Logger;</font><br/>
+<font color="#808080">010</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">011</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">de.fub.tip.datenanzeige.Koordinate;</font><br/>
+<font color="#808080">012</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">de.fub.tip.datenanzeige.ormapper.*;</font><br/>
+<font color="#808080">013</font>&nbsp;<font color="#008000">/**</font><br/>
+<font color="#808080">014</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Sinn:&nbsp;kapselt&nbsp;Zugriffe&nbsp;auf&nbsp;die&nbsp;Datenbank&nbsp;dahingehend,</font><br/>
+<font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;dass&nbsp;jede&nbsp;Funktion&nbsp;eine&nbsp;Connection&nbsp;aus&nbsp;dem&nbsp;Struts-DB-</font><br/>
+<font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Verbindungspool&nbsp;&uuml;bernimmt&nbsp;und&nbsp;dann&nbsp;die&nbsp;entsprechende&nbsp;Funktion&nbsp;ausf&uuml;hrt.</font><br/>
+<font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Zus&auml;tzlich&nbsp;finden&nbsp;sich&nbsp;hier&nbsp;POSTGIS-erleichternde&nbsp;Funktionen,&nbsp;</font><br/>
+<font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;die&nbsp;h&auml;ufig&nbsp;benutzt&nbsp;werden.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">hirsch,&nbsp;16.02.2004</font><br/>
+<font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">2004-06-10</font><br/>
+<font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;$Id:&nbsp;DBFunktionen.java,v&nbsp;1.16&nbsp;2004/06/10&nbsp;09:28:09&nbsp;hirsch&nbsp;Exp&nbsp;$</font><br/>
+<font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">026</font>&nbsp;<font color="#0000c0"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">DBFunktionen&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Logger&nbsp;zur&nbsp;Fehlersuche&nbsp;*/</font><br/>
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">Logger&nbsp;logger&nbsp;=&nbsp;Logger.getLogger</font><font color="#000000">(</font><font color="#000000">DBFunktionen.</font><font color="#0000c0"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">029</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;pr&uuml;ft,&nbsp;ob&nbsp;ein&nbsp;Benutzer&nbsp;eine&nbsp;Sehensw&uuml;rdigkeit&nbsp;bereits&nbsp;gesehen&nbsp;hat&nbsp;</font><br/>
+<font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;oder&nbsp;nicht.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Dies&nbsp;bedeutet&nbsp;nur,&nbsp;dass&nbsp;der&nbsp;Benutzer&nbsp;bereits&nbsp;an&nbsp;diesem&nbsp;Ort&nbsp;war!</font><br/>
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">user&nbsp;angemeldeter&nbsp;Benutzer</font><br/>
+<font color="#808080">036</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">loc&nbsp;aktueller&nbsp;Standort</font><br/>
+<font color="#808080">037</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">dataSource&nbsp;Datenbankverbindung&nbsp;zur&nbsp;Abfrage</font><br/>
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">true&nbsp;-&nbsp;wenn&nbsp;Benutzer&nbsp;schonmal&nbsp;hier&nbsp;war,&nbsp;sonst&nbsp;false</font><br/>
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">Boolean&nbsp;alreadyVisited</font><font color="#000000">(</font><font color="#000000">UserdataVO&nbsp;user,&nbsp;</font><br/>
+<font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">LocationVO&nbsp;loc,&nbsp;DataSource&nbsp;dataSource</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">043</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">Boolean&nbsp;ergebnis&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Boolean</font><font color="#000000">(</font><font color="#0000c0"><b>false</b></font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">PreparedStatement&nbsp;prepStat&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">Connection&nbsp;con&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">047</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">//&nbsp;eigentlich&nbsp;wird&nbsp;nur&nbsp;geguckt,&nbsp;ob&nbsp;die&nbsp;Abfrage&nbsp;ein&nbsp;Tupel&nbsp;zur&uuml;ckgibt,</font><br/>
+<font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">//&nbsp;was&nbsp;der&nbsp;Fall&nbsp;ist,&nbsp;wenn&nbsp;ein&nbsp;LocationEvent&nbsp;zum&nbsp;&uuml;bergeben&nbsp;Tupel&nbsp;aus</font><br/>
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">//&nbsp;(user,&nbsp;Location)&nbsp;existiert</font><br/>
+<font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;sql&nbsp;=&nbsp;</font><font color="#990000">&#34;SELECT&nbsp;leid&nbsp;FROM&nbsp;locationevent&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;WHERE&nbsp;udid=&nbsp;?&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;AND&nbsp;location&nbsp;&amp;&amp;&nbsp;GeometryFromText(&nbsp;?&nbsp;,-1)&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;AND&nbsp;Distance(GeometryFromText(&nbsp;?&nbsp;,-1),&nbsp;location)&nbsp;&lt;&nbsp;?&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">055</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">056</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>try&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">057</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">con&nbsp;=&nbsp;dataSource.getConnection</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">058</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">prepStat&nbsp;=&nbsp;con.prepareStatement</font><font color="#000000">(</font><font color="#000000">sql</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">prepStat.setInt</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">,&nbsp;user.getId</font><font color="#000000">()</font><font color="#000000">.intValue</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">prepStat.setString</font><font color="#000000">(</font><font color="#990000">2</font><font color="#000000">,&nbsp;DBFunktionen.getBox</font><font color="#000000">(</font><font color="#000000">loc.getLocation</font><font color="#000000">()))</font><font color="#000000">;</font><br/>
+<font color="#808080">062</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">prepStat.setString</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">,&nbsp;DBFunktionen.getPoint</font><font color="#000000">(</font><font color="#000000">loc.getLocation</font><font color="#000000">()))</font><font color="#000000">;</font><br/>
+<font color="#808080">063</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">prepStat.setDouble</font><font color="#000000">(</font><font color="#990000">4</font><font color="#000000">,&nbsp;Koordinate.getDistance</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">064</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ResultSet&nbsp;rs&nbsp;=&nbsp;prepStat.executeQuery</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">066</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if</b></font><font color="#000000">(</font><font color="#000000">rs!=</font><font color="#0000c0"><b>null&nbsp;</b></font><font color="#000000">&amp;&amp;&nbsp;rs.next</font><font color="#000000">())&nbsp;{</font><br/>
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Boolean</font><font color="#000000">(</font><font color="#0000c0"><b>true</b></font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">068</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;if</font><br/>
+<font color="#808080">069</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">070</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">SQLException&nbsp;e</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.error</font><font color="#000000">(</font><font color="#990000">&#34;DBFunktionen.alreadyVisited():&nbsp;Fehler&nbsp;-&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;e&nbsp;+&nbsp;</font><font color="#990000">&#34;,&nbsp;&#34;</font><font color="#000000">+</font><br/>
+<font color="#808080">072</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">e.getLocalizedMessage</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">073</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>catch</b></font><font color="#000000">(</font><font color="#000000">Exception&nbsp;e</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Damit&nbsp;auf&nbsp;keinen&nbsp;Fall&nbsp;auf&nbsp;den&nbsp;Webseiten&nbsp;Fehler&nbsp;angezeigt&nbsp;werden,</font><br/>
+<font color="#808080">076</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;die&nbsp;durch&nbsp;das&nbsp;Logging&nbsp;verursacht&nbsp;wurden&nbsp;....</font><br/>
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.error</font><font color="#000000">(</font><font color="#990000">&#34;DBFunktionen.alreadyVisited():&nbsp;Problem&nbsp;-&nbsp;&#34;</font><font color="#000000">+e&nbsp;+</font><font color="#990000">&#34;,&nbsp;&#34;</font><font color="#000000">+&nbsp;</font><br/>
+<font color="#808080">078</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">e.getLocalizedMessage</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;try</font><br/>
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">082</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Datenbankverbindung&nbsp;schliessen</font><br/>
+<font color="#808080">083</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>finally&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>try&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">085</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if</b></font><font color="#000000">(</font><font color="#000000">con!=</font><font color="#0000c0"><b>null</b></font><font color="#000000">)&nbsp;</font><font color="#000000">con.close</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;DBFunktionen.alreadyVisited():&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">087</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;DB-Con&nbsp;geschlossen.&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">088</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">SQLException&nbsp;e1</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;DBFunktionen.alreadyVisited():&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;e1</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;DBFunktionen.alreadyVisited():&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;Fehler&nbsp;beim&nbsp;Schliessen&nbsp;der&nbsp;DB-Con:&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;e1.getLocalizedMessage</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;catch</font><br/>
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;finally</font><br/>
+<font color="#808080">094</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">095</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">ergebnis;</font><br/>
+<font color="#808080">096</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;alreadyVisited</font><br/>
+<font color="#808080">097</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Damit&nbsp;man&nbsp;nicht&nbsp;standardm&auml;ssig&nbsp;die&nbsp;int-Werte&nbsp;der&nbsp;Klasse&nbsp;Geometry&nbsp;des</font><br/>
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Postgis-Paketes&nbsp;benutzen&nbsp;muss,&nbsp;</font><font color="#008000">&lt;br&gt;</font><font color="#008000">soll&nbsp;diese&nbsp;Methode&nbsp;eine</font><br/>
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;englische&nbsp;Repr&auml;sentation&nbsp;des&nbsp;ganzen&nbsp;zur&uuml;ckliefern&nbsp;....</font><br/>
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">103</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@see&nbsp;</font><font color="#008000">org.postgis.Geometry</font><br/>
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">value&nbsp;interne&nbsp;Darstellung&nbsp;des&nbsp;Typs</font><br/>
+<font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">geografischer&nbsp;Typ&nbsp;als&nbsp;String-Wort</font><br/>
+<font color="#808080">107</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;decodeGeoType</font><font color="#000000">(</font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">value</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>switch</b></font><font color="#000000">(</font><font color="#000000">value</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">1</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;POINT&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">111</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">2</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;LINESTRING&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">112</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">3</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;POLYGON&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">113</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">4</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;MULTIPOINT&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">114</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">5</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;MULTILINESTRING&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">115</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">6</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;MULTIPOLYGON&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">116</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>case&nbsp;</b></font><font color="#990000">7</font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;GEOMETRYCOLLECTION&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">117</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>default</b></font><font color="#000000">:&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;unknown&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">118</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;switch</font><br/>
+<font color="#808080">119</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;decodeGeoType</font><br/>
+<font color="#808080">120</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">121</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">122</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Laut&nbsp;Postgresql&nbsp;h&auml;tte&nbsp;man&nbsp;eigentlich&nbsp;'box3d(usw.)'&nbsp;zur&uuml;ckgeben&nbsp;m&uuml;ssen.</font><br/>
+<font color="#808080">123</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Dann&nbsp;gibt&nbsp;es&nbsp;aber&nbsp;Probleme&nbsp;mit&nbsp;dem&nbsp;Parsen&nbsp;</font><br/>
+<font color="#808080">124</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;des&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">PreparedStatement</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">.</font><br/>
+<font color="#808080">125</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">126</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;So&nbsp;geht&nbsp;es&nbsp;jetzt:</font><br/>
+<font color="#808080">127</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;ol&gt;</font><br/>
+<font color="#808080">128</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">keine&nbsp;?-Zeichen&nbsp;in&nbsp;'&nbsp;einh&uuml;llen!</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">129</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">keine&nbsp;Parameterinhalte&nbsp;maskieren</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">130</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;&lt;code&gt;</font><font color="#008000">prepStatement.setString(nr,&nbsp;inhalt)</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">benutzen&nbsp;und&nbsp;</font><br/>
+<font color="#808080">131</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">inhalt</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">durch&nbsp;eine&nbsp;eigene&nbsp;Funktion&nbsp;erstellen&nbsp;lassen&nbsp;</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">132</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;(Dank&nbsp;an&nbsp;Hendrik&nbsp;Steller,&nbsp;2004-03-22)</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">133</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/ol&gt;</font><br/>
+<font color="#808080">134</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">135</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">x&nbsp;Koordinate&nbsp;x</font><br/>
+<font color="#808080">136</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">y&nbsp;Koordinate&nbsp;y</font><br/>
+<font color="#808080">137</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">x1&nbsp;Koordinate&nbsp;x1</font><br/>
+<font color="#808080">138</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">y1&nbsp;Koordinate&nbsp;y1</font><br/>
+<font color="#808080">139</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">140</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">f&uuml;r&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">PreparedStatement</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">umgewandelte&nbsp;Postgres/</font><br/>
+<font color="#808080">141</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Postgis-box-Darstellung</font><br/>
+<font color="#808080">142</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">143</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;getBox</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">x,&nbsp;</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">y,&nbsp;</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">x1,&nbsp;</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">y1</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">144</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Vergleich&nbsp;zu&nbsp;Katjas&nbsp;alter&nbsp;Version:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">145</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;x1=x-distance;&nbsp;&nbsp;&nbsp;=&nbsp;Koordinate.xLinks</font><br/>
+<font color="#808080">146</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;x2=x+distance;&nbsp;&nbsp;=&nbsp;Koordinate.xRechts</font><br/>
+<font color="#808080">147</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;y1=y-distance;&nbsp;&nbsp;=&nbsp;Koordinate.yLinks</font><br/>
+<font color="#808080">148</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;y2=y+distance;&nbsp;&nbsp;=&nbsp;Koordinate.yRechts</font><br/>
+<font color="#808080">149</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;dann:&nbsp;BOX3D(&#34;+x1+&#34;&nbsp;&#34;+y1+&#34;,&nbsp;&#34;+x2+&#34;&nbsp;&#34;+y2+&nbsp;..</font><br/>
+<font color="#808080">150</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;BOX3D(&#34;&nbsp;</font><font color="#000000">+&nbsp;x&nbsp;+&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;y&nbsp;+&nbsp;</font><font color="#990000">&#34;,&#34;&nbsp;</font><font color="#000000">+&nbsp;x1&nbsp;+&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;y1+&nbsp;</font><font color="#990000">&#34;)&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">151</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getBox</font><br/>
+<font color="#808080">152</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">153</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">154</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;wandelt&nbsp;Koordinate&nbsp;in&nbsp;PostGIS-box3d&nbsp;um&nbsp;</font><br/>
+<font color="#808080">155</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">k&nbsp;Koordinate</font><br/>
+<font color="#808080">156</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">f&uuml;r&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">PreparedStatement</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">umgewandelte&nbsp;Postgres/</font><br/>
+<font color="#808080">157</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Postgis-box-Darstellung</font><br/>
+<font color="#808080">158</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">159</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;getBox</font><font color="#000000">(</font><font color="#000000">Koordinate&nbsp;k</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">160</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">k.calculateArea</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">161</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;BOX3D(&#34;&nbsp;</font><font color="#000000">+&nbsp;k.getXLinks</font><font color="#000000">()&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;k.getXRechts</font><font color="#000000">()&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;,&#34;&nbsp;</font><font color="#000000">+&nbsp;</font><br/>
+<font color="#808080">162</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">k.getYLinks</font><font color="#000000">()&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;k.getYRechts</font><font color="#000000">()</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;)&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">163</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getBox</font><br/>
+<font color="#808080">164</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">165</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">166</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;siehe&nbsp;getBox()</font><br/>
+<font color="#808080">167</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">168</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">x&nbsp;Koordinate&nbsp;x</font><br/>
+<font color="#808080">169</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">y&nbsp;Koordinate&nbsp;y</font><br/>
+<font color="#808080">170</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">f&uuml;r&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">PreparedStatement</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">umgewandelte&nbsp;Postgres/</font><br/>
+<font color="#808080">171</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Postgis-punkt-Darstellung</font><br/>
+<font color="#808080">172</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">173</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;getPoint</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">x,&nbsp;</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">y</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">174</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Vergleich&nbsp;zu&nbsp;Katjas&nbsp;alter&nbsp;Version:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">175</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;dann:&nbsp;POINT&nbsp;(&#34;+x+&#34;&nbsp;&#34;+y+...</font><br/>
+<font color="#808080">176</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;POINT(&#34;&nbsp;</font><font color="#000000">+&nbsp;x&nbsp;+&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;y&nbsp;+&nbsp;</font><font color="#990000">&#34;)&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">177</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getPoint</font><br/>
+<font color="#808080">178</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">179</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">180</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;wandelt&nbsp;Koordinate&nbsp;in&nbsp;PostGIS-Darstellung&nbsp;um&nbsp;</font><br/>
+<font color="#808080">181</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">k&nbsp;Koordinate</font><br/>
+<font color="#808080">182</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">f&uuml;r&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">PreparedStatement</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">umgewandelte&nbsp;Postgres/</font><br/>
+<font color="#808080">183</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Postgis-punkt-Darstellung</font><br/>
+<font color="#808080">184</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">185</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;getPoint</font><font color="#000000">(</font><font color="#000000">Koordinate&nbsp;k</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">186</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">k.calculateArea</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">187</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;POINT(&#34;&nbsp;</font><font color="#000000">+&nbsp;k.getX</font><font color="#000000">()&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;k.getY</font><font color="#000000">()&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;)&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">188</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getPoint</font><br/>
+<font color="#808080">189</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">190</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">191</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;maskiert&nbsp;den&nbsp;&uuml;bergebenen&nbsp;String&nbsp;nach&nbsp;SQL-Syntax&nbsp;mit&nbsp;einem&nbsp;%...%&nbsp;f&uuml;r</font><br/>
+<font color="#808080">192</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;die&nbsp;Benutzung&nbsp;des&nbsp;LIKE-Konstrukts.</font><br/>
+<font color="#808080">193</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&nbsp;</font><br/>
+<font color="#808080">194</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">sql&nbsp;SQL-Ersetzung</font><br/>
+<font color="#808080">195</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">f&uuml;r&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">PreparedStatement</font><font color="#008000">&lt;/code&gt;&nbsp;</font><br/>
+<font color="#808080">196</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;umgewandelte&nbsp;SQL-LIKE-Darstellung</font><br/>
+<font color="#808080">197</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">198</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;getSQLLike</font><font color="#000000">(</font><font color="#000000">String&nbsp;sql</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">199</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#990000">&#34;%&#34;&nbsp;</font><font color="#000000">+&nbsp;sql&nbsp;+&nbsp;</font><font color="#990000">&#34;%&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">200</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getSQLLike</font><br/>
+<font color="#808080">201</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">202</font>&nbsp;<font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;class</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter V4.1 2004 by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="2" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+ViewObject.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#008000">/*</font><br/>
+<font color="#808080">02</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Created&nbsp;on&nbsp;19.03.2004</font><br/>
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">04</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">de.fub.tip.datenanzeige.ormapper;</font><br/>
+<font color="#808080">05</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.apache.log4j.Logger;</font><br/>
+<font color="#808080">06</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">07</font>&nbsp;<font color="#008000">/**</font><br/>
+<font color="#808080">08</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Sinn:&nbsp;jedes&nbsp;View-Objekt&nbsp;(VO)&nbsp;verf&uuml;gt&nbsp;&uuml;ber&nbsp;Loggingaufrufe</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Eigentlich&nbsp;soll&nbsp;nur&nbsp;die&nbsp;Struktur&nbsp;verbessert&nbsp;werden&nbsp;&auml;hnlich&nbsp;wie&nbsp;beim&nbsp;</font><br/>
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Container</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;h1&gt;</font><font color="#008000">ACHTUNG!</font><font color="#008000">&lt;/h1&gt;&lt;br&gt;</font><br/>
+<font color="#808080">12</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Jedes&nbsp;Objekt,&nbsp;das&nbsp;diese&nbsp;Schnittstelle&nbsp;implementiert&nbsp;sollte&nbsp;von</font><br/>
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;java.io.Serializable&nbsp;erben!</font><br/>
+<font color="#808080">14</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">15</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@see&nbsp;</font><font color="#008000">java.io.Serializable</font><br/>
+<font color="#808080">16</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">17</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">hirsch,&nbsp;19.03.2004</font><br/>
+<font color="#808080">18</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">2004-03-19</font><br/>
+<font color="#808080">19</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;$Id:&nbsp;ViewObject.java,v&nbsp;1.2&nbsp;2004/04/06&nbsp;22:20:43&nbsp;hirsch&nbsp;Exp&nbsp;$</font><br/>
+<font color="#808080">20</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">21</font>&nbsp;<font color="#0000c0"><b>public&nbsp;interface&nbsp;</b></font><font color="#000000">ViewObject&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">22</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">23</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;zur&nbsp;Vereinfachung&nbsp;des&nbsp;Loggings&nbsp;soll&nbsp;jedes&nbsp;Objekt&nbsp;diese&nbsp;Methode&nbsp;bieten&nbsp;-</font><font color="#008000">&lt;br&gt;&nbsp;</font><br/>
+<font color="#808080">24</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;nach&nbsp;M&ouml;glichkeit&nbsp;sollte&nbsp;hier&nbsp;im&nbsp;internen&nbsp;Logger&nbsp;in&nbsp;im&nbsp;DEBUG-Modus</font><br/>
+<font color="#808080">25</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;eine&nbsp;Ausgabe&nbsp;gemacht&nbsp;werden.</font><br/>
+<font color="#808080">26</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">27</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">logger&nbsp;der&nbsp;zu&nbsp;verwendende&nbsp;Logger</font><br/>
+<font color="#808080">28</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">29</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">logObject</font><font color="#000000">(</font><font color="#000000">Logger&nbsp;logger</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">30</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">31</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">32</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Damit&nbsp;sinnvolle&nbsp;Ausgaben&nbsp;in&nbsp;den&nbsp;Logs&nbsp;erscheinen,&nbsp;muss&nbsp;die&nbsp;</font><br/>
+<font color="#808080">33</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">toString()</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">-Methode&nbsp;&uuml;berschrieben&nbsp;werden!</font><br/>
+<font color="#808080">34</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">35</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Stringrepr&auml;sentation&nbsp;des&nbsp;ViewObjekts</font><br/>
+<font color="#808080">36</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">37</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">38</font>&nbsp;<font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;interface</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>

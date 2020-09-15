@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter V4.1 2004 by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="2" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+StatusAnzeiger.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#008000">/*</font><br/>
+<font color="#808080">002</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Created&nbsp;on&nbsp;09.04.2004</font><br/>
+<font color="#808080">003</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">004</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">de.fub.tip.datenbank.logik;</font><br/>
+<font color="#808080">005</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.sql.Connection;</font><br/>
+<font color="#808080">006</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.sql.PreparedStatement;</font><br/>
+<font color="#808080">007</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.sql.ResultSet;</font><br/>
+<font color="#808080">008</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.sql.SQLException;</font><br/>
+<font color="#808080">009</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.sql.Statement;</font><br/>
+<font color="#808080">010</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">011</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">javax.sql.DataSource;</font><br/>
+<font color="#808080">012</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">013</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.apache.log4j.Logger;</font><br/>
+<font color="#808080">014</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">015</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">de.fub.tip.datenanzeige.ormapper.EinzeilerVO;</font><br/>
+<font color="#808080">016</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">de.fub.tip.datenbank.factory.LogicObject;</font><br/>
+<font color="#808080">017</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">018</font>&nbsp;<font color="#008000">/**</font><br/>
+<font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Sinn:&nbsp;Diese&nbsp;Klasse&nbsp;implementiert&nbsp;die&nbsp;Logik&nbsp;zur&nbsp;Status-Anzeige&nbsp;&nbsp;</font><br/>
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Dabei&nbsp;gibt&nbsp;es&nbsp;verschiedene&nbsp;Aufrufe&nbsp;zur:</font><br/>
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;ul&gt;</font><br/>
+<font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">Postgis-Version</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">PostgreSQL-Version</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">Anzahl&nbsp;der&nbsp;angemeldeten&nbsp;Besucher/User</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/ul&gt;</font><br/>
+<font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">hirsch,&nbsp;09.04.2004</font><br/>
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">2004-04-11</font><br/>
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;$Id:&nbsp;StatusAnzeiger.java,v&nbsp;1.10&nbsp;2004/05/13&nbsp;12:13:39&nbsp;hirsch&nbsp;Exp&nbsp;$</font><br/>
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">032</font>&nbsp;<font color="#0000c0"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">StatusAnzeiger&nbsp;</font><font color="#0000c0"><b>implements&nbsp;</b></font><font color="#000000">LogicObject&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;eigener&nbsp;Logger&nbsp;f&uuml;r&nbsp;Fehler&nbsp;*/</font><br/>
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;</b></font><font color="#000000">Logger&nbsp;logger&nbsp;=&nbsp;</font><br/>
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Logger.getLogger</font><font color="#000000">(</font><font color="#000000">ThemenBearbeiter.</font><font color="#0000c0"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">036</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">037</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Datenbankverbindung&nbsp;der&nbsp;Komponente&nbsp;*/</font><br/>
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">Connection&nbsp;con&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Datenbankstatement&nbsp;*/</font><br/>
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">Statement&nbsp;statement&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Datenbankstatement,&nbsp;das&nbsp;parametrisiert&nbsp;werden&nbsp;kann&nbsp;*/</font><br/>
+<font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">PreparedStatement&nbsp;prepStatement&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Ergebnis&nbsp;der&nbsp;Abfragen&nbsp;*/</font><br/>
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">ResultSet&nbsp;rs&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;STRUTS-Datenquelle&nbsp;aus&nbsp;dem&nbsp;Verbindungspool&nbsp;*/</font><br/>
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">DataSource&nbsp;dataSource&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">047</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Inhalt&nbsp;der&nbsp;Statuszeile&nbsp;als&nbsp;Einzeiler&nbsp;kodiert&nbsp;*/</font><br/>
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">EinzeilerVO&nbsp;ergebnis&nbsp;=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">;</font><br/>
+<font color="#808080">049</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;startet&nbsp;den&nbsp;Pr&uuml;fer&nbsp;im&nbsp;aktuellen&nbsp;Request,&nbsp;</font><br/>
+<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;damit&nbsp;Zugriff&nbsp;auf&nbsp;die&nbsp;DB&nbsp;m&ouml;glich&nbsp;wird.</font><br/>
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">dataSource&nbsp;von&nbsp;Action</font><br/>
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">055</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">StatusAnzeiger</font><font color="#000000">(</font><font color="#000000">DataSource&nbsp;dataSource</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">056</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;StatusAnzeiger&nbsp;startet...&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">057</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.dataSource&nbsp;=&nbsp;dataSource;</font><br/>
+<font color="#808080">058</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.ergebnis&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">EinzeilerVO</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;Konstruktor</font><br/>
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">062</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;bestimmt&nbsp;die&nbsp;verwendete&nbsp;PostGIS-Version&nbsp;als&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">EinzeilerVO</font><font color="#008000">&lt;/code&gt;&nbsp;</font><br/>
+<font color="#808080">063</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">PostgisVersion</font><br/>
+<font color="#808080">064</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@throws&nbsp;</font><font color="#008000">SQLException,&nbsp;</font><br/>
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;wenn&nbsp;beim&nbsp;Auslesen&nbsp;aus&nbsp;der&nbsp;DB&nbsp;Probleme&nbsp;auftauchen</font><br/>
+<font color="#808080">066</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">EinzeilerVO&nbsp;getPostgisVer</font><font color="#000000">()&nbsp;</font><font color="#0000c0"><b>throws&nbsp;</b></font><font color="#000000">SQLException&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">068</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;this</b></font><font color="#000000">.getResult</font><font color="#000000">(</font><font color="#990000">&#34;postgis_version()&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">069</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getPostgisVer</font><br/>
+<font color="#808080">070</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">072</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;bestimmt&nbsp;die&nbsp;verwendete&nbsp;PostgreSQL-Version&nbsp;</font><br/>
+<font color="#808080">073</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;als&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">EinzeilerVO</font><font color="#008000">&lt;/code&gt;</font><br/>
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&nbsp;</font><br/>
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">PostgresqlVersion</font><br/>
+<font color="#808080">076</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@throws&nbsp;</font><font color="#008000">SQLException</font><br/>
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;wenn&nbsp;beim&nbsp;Auslesen&nbsp;aus&nbsp;der&nbsp;DB&nbsp;Probleme&nbsp;auftauchen</font><br/>
+<font color="#808080">078</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">EinzeilerVO&nbsp;getPostgresVer</font><font color="#000000">()&nbsp;</font><font color="#0000c0"><b>throws&nbsp;</b></font><font color="#000000">SQLException&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;this</b></font><font color="#000000">.getResult</font><font color="#000000">(</font><font color="#990000">&#34;version()&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getPostgresVer</font><br/>
+<font color="#808080">082</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">083</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;bestimmt&nbsp;die&nbsp;Anzahl&nbsp;der&nbsp;angemeldeten&nbsp;Benutzer&nbsp;als&nbsp;</font><br/>
+<font color="#808080">085</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">EinzeilerVO</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">durch&nbsp;Z&auml;hlung&nbsp;der&nbsp;Tupel</font><br/>
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;der&nbsp;Datenbanktabelle&nbsp;USERDATA.&nbsp;</font><br/>
+<font color="#808080">087</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">088</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Anzahl&nbsp;der&nbsp;angemeldeten&nbsp;Benutzer</font><br/>
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@throws&nbsp;</font><font color="#008000">SQLException</font><br/>
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&nbsp;wenn&nbsp;beim&nbsp;Auslesen&nbsp;aus&nbsp;der&nbsp;DB&nbsp;Probleme&nbsp;auftauchen</font><br/>
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">EinzeilerVO&nbsp;getUserCount</font><font color="#000000">()&nbsp;</font><font color="#0000c0"><b>throws&nbsp;</b></font><font color="#000000">SQLException&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;this</b></font><font color="#000000">.getResult</font><font color="#000000">(</font><font color="#990000">&#34;usercount()&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">094</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getUserCount</font><br/>
+<font color="#808080">095</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">096</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">097</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;kapselt&nbsp;den&nbsp;Zugriff&nbsp;auf&nbsp;die&nbsp;Datenbank&nbsp;f&uuml;r&nbsp;die&nbsp;getter-Methoden.</font><br/>
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;In&nbsp;den&nbsp;meisten&nbsp;F&auml;llen&nbsp;werden&nbsp;direkt&nbsp;SQL-Funktionen&nbsp;aufgerufen,&nbsp;die</font><br/>
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;der&nbsp;Funktion&nbsp;als&nbsp;Parameter&nbsp;dienen.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Um&nbsp;beispielsweise&nbsp;die&nbsp;aktuelle&nbsp;Postgres-Version&nbsp;abzufragen&nbsp;lautet</font><br/>
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;der&nbsp;SQL-String:&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">SELECT&nbsp;version();</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">.&nbsp;Aus&nbsp;diesem&nbsp;Grund</font><br/>
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&uuml;bernimmt&nbsp;diese&nbsp;Funktion&nbsp;dann&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">version()</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">und&nbsp;</font><br/>
+<font color="#808080">103</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;bastelt&nbsp;den&nbsp;Rest&nbsp;drumherum.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Das&nbsp;Ergebnis&nbsp;ist&nbsp;dann&nbsp;ein&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">EinzeilerVO</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">!</font><br/>
+<font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">sqlFunktion&nbsp;datenbanknaher&nbsp;Funktionsaufruf</font><br/>
+<font color="#808080">107</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Ergebnis&nbsp;als&nbsp;Einzeiler</font><br/>
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">EinzeilerVO&nbsp;getResult</font><font color="#000000">(</font><font color="#000000">String&nbsp;sqlFunktion</font><font color="#000000">)&nbsp;</font><font color="#0000c0"><b>throws&nbsp;</b></font><font color="#000000">SQLException&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">EinzeilerVO&nbsp;resultat&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">EinzeilerVO</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">111</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;sql;</font><br/>
+<font color="#808080">112</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">113</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;da&nbsp;kein&nbsp;PreparedStatement&nbsp;geht&nbsp;ebend&nbsp;traditionell:</font><br/>
+<font color="#808080">114</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Argumentwert&nbsp;bestimmt&nbsp;auszuf&uuml;hrendes&nbsp;SELECT-Statement,</font><br/>
+<font color="#808080">115</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;da&nbsp;die&nbsp;Verwendung&nbsp;von&nbsp;PreparedStatement&nbsp;nicht&nbsp;mit</font><br/>
+<font color="#808080">116</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Inhalten&nbsp;&nbsp;-&nbsp;wie&nbsp;Datenbankfuntionen&nbsp;-&nbsp;funktioniert.</font><br/>
+<font color="#808080">117</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if</b></font><font color="#000000">(</font><font color="#000000">sqlFunktion&nbsp;==&nbsp;</font><font color="#990000">&#34;version()&#34;</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">118</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">sql&nbsp;=&nbsp;</font><font color="#990000">&#34;SELECT&nbsp;version()&nbsp;AS&nbsp;info&nbsp;&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">119</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">120</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>else&nbsp;if</b></font><font color="#000000">(</font><font color="#000000">sqlFunktion&nbsp;==&nbsp;</font><font color="#990000">&#34;postgis_version()&#34;</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">121</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">sql&nbsp;=&nbsp;</font><font color="#990000">&#34;SELECT&nbsp;postgis_version()&nbsp;AS&nbsp;info&nbsp;&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">122</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">123</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>else&nbsp;if</b></font><font color="#000000">(</font><font color="#000000">sqlFunktion&nbsp;==&nbsp;</font><font color="#990000">&#34;usercount()&#34;</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">124</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">sql&nbsp;=&nbsp;</font><font color="#990000">&#34;SELECT&nbsp;count(*)&nbsp;AS&nbsp;info&nbsp;FROM&nbsp;userdata&nbsp;&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">125</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">126</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>else&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">127</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">resultat.setWert</font><font color="#000000">(</font><font color="#990000">&#34;not&nbsp;yet&nbsp;implemented&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">128</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.error</font><font color="#000000">(</font><font color="#990000">&#34;StatusAnzeiger.getResult(&#34;&nbsp;</font><font color="#000000">+&nbsp;sqlFunktion&nbsp;+</font><br/>
+<font color="#808080">129</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;):&nbsp;ung&uuml;ltiges&nbsp;Argument&nbsp;verwendet!&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">130</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">131</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">resultat;</font><br/>
+<font color="#808080">132</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;if</font><br/>
+<font color="#808080">133</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">134</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>try&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">135</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.con&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.dataSource.getConnection</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">136</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">137</font>&nbsp;<font color="#008000">//&nbsp;So&nbsp;geht&nbsp;es&nbsp;leider&nbsp;nicht:</font><br/>
+<font color="#808080">138</font>&nbsp;<font color="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.prepStatement&nbsp;=&nbsp;this.con.prepareStatement(&#34;SELECT&nbsp;?&nbsp;AS&nbsp;info&#34;);</font><br/>
+<font color="#808080">139</font>&nbsp;<font color="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.prepStatement.setString(1,&nbsp;sqlFunktion);</font><br/>
+<font color="#808080">140</font>&nbsp;<font color="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.rs&nbsp;=&nbsp;this.prepStatement.executeQuery();</font><br/>
+<font color="#808080">141</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">142</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.statement&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.con.createStatement</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">143</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.rs&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.statement.executeQuery</font><font color="#000000">(</font><font color="#000000">sql</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">144</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">145</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Auswerten&nbsp;und&nbsp;Ergebnis&nbsp;in&nbsp;EinzeilerVO&nbsp;packen</font><br/>
+<font color="#808080">146</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.rs&nbsp;!=&nbsp;</font><font color="#0000c0"><b>null&nbsp;</b></font><font color="#000000">&amp;&amp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.rs.next</font><font color="#000000">()&nbsp;)&nbsp;{</font><br/>
+<font color="#808080">147</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">resultat.setWert</font><font color="#000000">(</font><font color="#000000">rs.getString</font><font color="#000000">(</font><font color="#990000">&#34;info&#34;</font><font color="#000000">))</font><font color="#000000">;</font><br/>
+<font color="#808080">148</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.info</font><font color="#000000">(</font><font color="#990000">&#34;getResult&nbsp;=&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;resultat.getWert</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">149</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">resultat.logObject</font><font color="#000000">(</font><font color="#000000">logger</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">150</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>else&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">151</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">SQLException</font><font color="#000000">(</font><font color="#990000">&#34;StatusAnzeiger.getResult&#34;&nbsp;</font><font color="#000000">+&nbsp;</font><br/>
+<font color="#808080">152</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;(&nbsp;&#34;</font><font color="#000000">+&nbsp;sqlFunktion&nbsp;+&nbsp;</font><font color="#990000">&#34;)&nbsp;-&nbsp;Fehler&nbsp;beim&nbsp;Ergebnisauslesen&nbsp;aus&nbsp;DB.&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">153</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;if</font><br/>
+<font color="#808080">154</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">resultat.logObject</font><font color="#000000">(</font><font color="#000000">logger</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">155</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;try</font><br/>
+<font color="#808080">156</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">157</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">158</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Datenbankverbindung&nbsp;schliessen</font><br/>
+<font color="#808080">159</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>finally&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">160</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>try&nbsp;</b></font><font color="#000000">{</font><br/>
+<font color="#808080">161</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if</b></font><font color="#000000">(</font><font color="#000000">con!=</font><font color="#0000c0"><b>null</b></font><font color="#000000">)&nbsp;</font><font color="#000000">con.close</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">162</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;StatusAnzeiger.getResult():&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">163</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;DB-Con&nbsp;geschlossen.&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">164</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">165</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">SQLException&nbsp;e1</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">166</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;StatusAnzeiger.getResult():&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;e1</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">167</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">logger.debug</font><font color="#000000">(</font><font color="#990000">&#34;StatusAnzeiger.getResult():&nbsp;&#34;&nbsp;</font><font color="#000000">+</font><br/>
+<font color="#808080">168</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;Fehler&nbsp;beim&nbsp;Schliessen&nbsp;der&nbsp;DB-Con:&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;</font><br/>
+<font color="#808080">169</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">e1.getLocalizedMessage</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">170</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;catch</font><br/>
+<font color="#808080">171</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;finally</font><br/>
+<font color="#808080">172</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">173</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">resultat;</font><br/>
+<font color="#808080">174</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;getResult</font><br/>
+<font color="#808080">175</font>&nbsp;<font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;class</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>

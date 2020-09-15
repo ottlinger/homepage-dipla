@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter V4.1 2004 by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="2" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+Koordinate.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#008000">/*</font><br/>
+<font color="#808080">002</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Created&nbsp;on&nbsp;17.02.2004</font><br/>
+<font color="#808080">003</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">004</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">de.fub.tip.datenanzeige;</font><br/>
+<font color="#808080">005</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">006</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.io.Serializable;</font><br/>
+<font color="#808080">007</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.StringTokenizer;</font><br/>
+<font color="#808080">008</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">009</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.postgis.PGgeometry;</font><br/>
+<font color="#808080">010</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.postgis.Point;</font><br/>
+<font color="#808080">011</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.postgis.Polygon;</font><br/>
+<font color="#808080">012</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">013</font>&nbsp;<font color="#008000">/**</font><br/>
+<font color="#808080">014</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Sinn:&nbsp;abstrahiert&nbsp;eine&nbsp;Koordinate&nbsp;und&nbsp;bietet&nbsp;Methoden&nbsp;zur&nbsp;Berechnung</font><br/>
+<font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;einer&nbsp;Umgebung&nbsp;an</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;b&gt;</font><font color="#008000">Die&nbsp;distance=0.001-Festlegung&nbsp;ist&nbsp;von&nbsp;Katja&nbsp;&uuml;bernommen!</font><font color="#008000">&lt;/b&gt;</font><br/>
+<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Nach&nbsp;Erzeugung&nbsp;eines&nbsp;Koordinaten-Objektes&nbsp;sollte&nbsp;die&nbsp;Methode</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">calculateArea()</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">aufgerufen&nbsp;werden,</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;damit&nbsp;die&nbsp;Rechteckkoordinaten&nbsp;zum&nbsp;angegebenen&nbsp;Punkt&nbsp;berechnet&nbsp;werden.&nbsp;</font><br/>
+<font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">hirsch,&nbsp;17.02.2004</font><br/>
+<font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">2004-04-06</font><br/>
+<font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;$Id:&nbsp;Koordinate.java,v&nbsp;1.12&nbsp;2004/06/11&nbsp;21:52:47&nbsp;hirsch&nbsp;Exp&nbsp;$</font><br/>
+<font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@see&nbsp;</font><font color="#008000">de.fub.tip.datenanzeige#calculateArea</font><br/>
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Historie:</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;ul&gt;</font><br/>
+<font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">2004-03-30:&nbsp;</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Umwandlung&nbsp;einer&nbsp;Koordinate&nbsp;in&nbsp;ein&nbsp;POSTGIS-Point-Objekt&nbsp;</font><br/>
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;li&gt;</font><font color="#008000">2004-04-16:&nbsp;</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Klasse&nbsp;implementiert&nbsp;auch&nbsp;die&nbsp;Schnittstelle&nbsp;Serializable,&nbsp;damit&nbsp;der&nbsp;Tomcat-</font><br/>
+<font color="#808080">036</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Container&nbsp;sie&nbsp;entsprechend&nbsp;serialisieren&nbsp;kann&nbsp;</font><br/>
+<font color="#808080">037</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/li&gt;</font><br/>
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/ul&gt;</font><br/>
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">040</font>&nbsp;<font color="#0000c0"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">Koordinate&nbsp;</font><font color="#0000c0"><b>implements&nbsp;</b></font><font color="#000000">Serializable&nbsp;</font><font color="#000000">{</font><br/>
+<font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Originalkoordinaten</font><br/>
+<font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;geografische&nbsp;X-Koordinate&nbsp;*/</font><br/>
+<font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">x&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;geografische&nbsp;Y-Koordinate&nbsp;*/</font><br/>
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">y&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">047</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Ausdehnungskoordinaten</font><br/>
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;geografische&nbsp;X-Ausdehnung&nbsp;nach&nbsp;links&nbsp;*/</font><br/>
+<font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">xLinks&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;geografische&nbsp;X-Ausdehnung&nbsp;nach&nbsp;rechts&nbsp;*/</font><br/>
+<font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">xRechts&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">052</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;geografische&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;links&nbsp;*/</font><br/>
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">yLinks&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">055</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;geografische&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;rechts&nbsp;*/</font><br/>
+<font color="#808080">056</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">yRechts&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">057</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">058</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;zur&nbsp;Vergr&ouml;sserung&nbsp;der&nbsp;eigentlichen&nbsp;Koordinaten&nbsp;wird</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;mit&nbsp;diesem&nbsp;Werte&nbsp;um&nbsp;einen&nbsp;Punkt&nbsp;herum&nbsp;ein&nbsp;Rechteck</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;abgebildet,&nbsp;das&nbsp;dem&nbsp;aktuellen&nbsp;Standort&nbsp;entspricht.</font><br/>
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;br&gt;&lt;br&gt;</font><br/>
+<font color="#808080">062</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Aus&nbsp;Katjas&nbsp;Implementierung&nbsp;&uuml;bernommen&nbsp;und&nbsp;auf</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">063</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;0.001&nbsp;gesetzt!</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">064</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">distance&nbsp;=&nbsp;</font><font color="#990000">0.001</font><font color="#000000">;&nbsp;</font><br/>
+<font color="#808080">066</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">068</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Standardkonstruktor,&nbsp;der&nbsp;eine&nbsp;leere&nbsp;Koordinate&nbsp;(0,0)&nbsp;erzeugt,</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">069</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;die&nbsp;dann&nbsp;mit&nbsp;den&nbsp;Settern&nbsp;gef&uuml;llt&nbsp;werden&nbsp;sollte.</font><br/>
+<font color="#808080">070</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;br&gt;&lt;br&gt;</font><br/>
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">calculateArea()</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">aufrufen&nbsp;nicht&nbsp;vergessen!</font><br/>
+<font color="#808080">072</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">073</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Koordinate</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.x&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.y&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br/>
+<font color="#808080">076</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;Konstruktor&nbsp;1</font><br/>
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">078</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Koordinate&nbsp;des&nbsp;aktuellen&nbsp;Standortes</font><br/>
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">x&nbsp;x-Koordinate</font><br/>
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">y&nbsp;y-Koordinate</font><br/>
+<font color="#808080">082</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">083</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Koordinate</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">x,&nbsp;</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">y</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.x&nbsp;=&nbsp;x;</font><br/>
+<font color="#808080">085</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.y&nbsp;=&nbsp;y;</font><br/>
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;Konstruktor&nbsp;2</font><br/>
+<font color="#808080">087</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">088</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Koordinate&nbsp;des&nbsp;aktuellen&nbsp;Standortes&nbsp;als&nbsp;Postgis-Darstellung.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Dieser&nbsp;Konstruktor&nbsp;dient&nbsp;der&nbsp;impliziten&nbsp;Umwandlung&nbsp;der&nbsp;Postgis-Darstellung</font><br/>
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;in&nbsp;die&nbsp;TIP-Darstellung&nbsp;als&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Koordinate</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">.</font><br/>
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">punkt&nbsp;Postgis-Punktdarstellung</font><br/>
+<font color="#808080">094</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">095</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Koordinate</font><font color="#000000">(</font><font color="#000000">Point&nbsp;punkt</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">096</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.x&nbsp;=&nbsp;punkt.getX</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">097</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.y&nbsp;=&nbsp;punkt.getY</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;Konstruktor&nbsp;3</font><br/>
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Hilfsfunktion&nbsp;zur&nbsp;Berechnung&nbsp;der&nbsp;Umgebungskoordinaten&nbsp;in</font><br/>
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Abh&auml;ngigkeit&nbsp;von&nbsp;der&nbsp;Distanz</font><br/>
+<font color="#808080">103</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">calculateArea</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.xRechts&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.x&nbsp;+&nbsp;distance;</font><br/>
+<font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.xLinks&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.x&nbsp;-&nbsp;distance;</font><br/>
+<font color="#808080">107</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.yRechts&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.y&nbsp;+&nbsp;distance;</font><br/>
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.yLinks&nbsp;=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.y&nbsp;-&nbsp;distance;</font><br/>
+<font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;calculateArea</font><br/>
+<font color="#808080">111</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">112</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">113</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">114</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;die&nbsp;eingestellte&nbsp;Entfernung&nbsp;um&nbsp;einen&nbsp;Punkt&nbsp;herum</font><br/>
+<font color="#808080">115</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Entfernung</font><br/>
+<font color="#808080">116</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">117</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getDistance</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">118</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">distance;</font><br/>
+<font color="#808080">119</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">120</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">121</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">122</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Von&nbsp;Katja&nbsp;eingef&uuml;hrter&nbsp;Hilfswert,&nbsp;da&nbsp;nach&nbsp;Ihren&nbsp;Aussagen&nbsp;die&nbsp;Koordinaten</font><br/>
+<font color="#808080">123</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;sehr&nbsp;sehr&nbsp;klein&nbsp;sind&nbsp;....</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">124</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">125</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">distance&nbsp;aktuelle&nbsp;Entfernung</font><br/>
+<font color="#808080">126</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">127</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setDistance</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">distance</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">128</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Koordinate.distance&nbsp;=&nbsp;distance;</font><br/>
+<font color="#808080">129</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">130</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">131</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">132</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;eigentliche&nbsp;X-Koordinate</font><br/>
+<font color="#808080">133</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">X-Koordinate</font><br/>
+<font color="#808080">134</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">135</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getX</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">136</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">x;</font><br/>
+<font color="#808080">137</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">138</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">139</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">140</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;setze&nbsp;X-Koordinate&nbsp;und&nbsp;berechne&nbsp;Umgebung&nbsp;neu</font><br/>
+<font color="#808080">141</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">x&nbsp;neue&nbsp;x-Koordinate</font><br/>
+<font color="#808080">142</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">143</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setX</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">x</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">144</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.x&nbsp;=&nbsp;x;</font><br/>
+<font color="#808080">145</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.calculateArea</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">146</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">147</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">148</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">149</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;X-Ausdehnung&nbsp;nach&nbsp;Links</font><br/>
+<font color="#808080">150</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">X-Koordinate&nbsp;Links</font><br/>
+<font color="#808080">151</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">152</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getXLinks</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">153</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">xLinks;</font><br/>
+<font color="#808080">154</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">155</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">156</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">157</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;setze&nbsp;X-Ausdehnung&nbsp;nach&nbsp;Links</font><br/>
+<font color="#808080">158</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">links&nbsp;x-ausdehnung&nbsp;nach&nbsp;links</font><br/>
+<font color="#808080">159</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">160</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setXLinks</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">links</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">161</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">xLinks&nbsp;=&nbsp;links;</font><br/>
+<font color="#808080">162</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">163</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">164</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">165</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;Rechts</font><br/>
+<font color="#808080">166</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">X-Koordinate&nbsp;Rechts</font><br/>
+<font color="#808080">167</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">168</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getXRechts</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">169</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">xRechts;</font><br/>
+<font color="#808080">170</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">171</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">172</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">173</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;setze&nbsp;X-Ausdehnung&nbsp;nach&nbsp;rechts</font><br/>
+<font color="#808080">174</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">rechts&nbsp;x-ausdehnung&nbsp;nach&nbsp;rechts</font><br/>
+<font color="#808080">175</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">176</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setXRechts</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">rechts</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">177</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">xRechts&nbsp;=&nbsp;rechts;</font><br/>
+<font color="#808080">178</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">179</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">180</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">181</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;gesetzte&nbsp;Y-Koordinate</font><br/>
+<font color="#808080">182</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Y-Koordinate</font><br/>
+<font color="#808080">183</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">184</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getY</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">185</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">y;</font><br/>
+<font color="#808080">186</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">187</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">188</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">189</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;setze&nbsp;Y-Koordinate&nbsp;und&nbsp;berechne&nbsp;Umgebung&nbsp;neu</font><br/>
+<font color="#808080">190</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">y&nbsp;neue&nbsp;y-Koordinate</font><br/>
+<font color="#808080">191</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">192</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setY</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">y</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">193</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.y&nbsp;=&nbsp;y;</font><br/>
+<font color="#808080">194</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.calculateArea</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">195</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">196</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">197</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">198</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;Links</font><br/>
+<font color="#808080">199</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Y-Koordinate&nbsp;Links</font><br/>
+<font color="#808080">200</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">201</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getYLinks</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">202</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">yLinks;</font><br/>
+<font color="#808080">203</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">204</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">205</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">206</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;setze&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;Links</font><br/>
+<font color="#808080">207</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">links&nbsp;y-Ausdehnung&nbsp;nach&nbsp;links</font><br/>
+<font color="#808080">208</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">209</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setYLinks</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">links</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">210</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">yLinks&nbsp;=&nbsp;links;</font><br/>
+<font color="#808080">211</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">212</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">213</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">214</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;rechts</font><br/>
+<font color="#808080">215</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Y-Koordinate&nbsp;rechts</font><br/>
+<font color="#808080">216</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">217</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">getYRechts</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">218</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">yRechts;</font><br/>
+<font color="#808080">219</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">220</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">221</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">222</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;setze&nbsp;Y-Ausdehnung&nbsp;nach&nbsp;Rechts</font><br/>
+<font color="#808080">223</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">rechts&nbsp;Y-Ausdehnung&nbsp;rechts</font><br/>
+<font color="#808080">224</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">225</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">setYRechts</font><font color="#000000">(</font><font color="#c00000"><b>double&nbsp;</b></font><font color="#000000">rechts</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">226</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">yRechts&nbsp;=&nbsp;rechts;</font><br/>
+<font color="#808080">227</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br/>
+<font color="#808080">228</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">229</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">230</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Damit&nbsp;man&nbsp;die&nbsp;Werte&nbsp;der&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Koordinate</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">auch&nbsp;problemlos</font><br/>
+<font color="#808080">231</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;in&nbsp;die&nbsp;Datenbank&nbsp;einf&uuml;gen&nbsp;kann,&nbsp;gibt&nbsp;es&nbsp;die&nbsp;M&ouml;glichkeit&nbsp;mit&nbsp;dieser&nbsp;Methode</font><br/>
+<font color="#808080">232</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;die&nbsp;interne&nbsp;Darstellung&nbsp;in&nbsp;eine&nbsp;Postgis-Darstellung&nbsp;umzuwandeln.</font><font color="#008000">&lt;br&gt;</font><br/>
+<font color="#808080">233</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Dabei&nbsp;wird&nbsp;ein&nbsp;Objekt&nbsp;des&nbsp;Typs&nbsp;Punkt&nbsp;zur&uuml;ckgegeben.&nbsp;PGgeometry&nbsp;wird&nbsp;hier</font><br/>
+<font color="#808080">234</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;jedoch&nbsp;als&nbsp;Signaturr&uuml;ckgabewert&nbsp;gew&auml;hlt,&nbsp;damit&nbsp;man&nbsp;nicht&nbsp;umst&auml;ndliche</font><br/>
+<font color="#808080">235</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Typumwandlungen&nbsp;vornehmen&nbsp;muss&nbsp;beim&nbsp;Einf&uuml;gen&nbsp;in&nbsp;die&nbsp;Datenbank.</font><br/>
+<font color="#808080">236</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&nbsp;</font><br/>
+<font color="#808080">237</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">Koordinatendarstellung&nbsp;als&nbsp;Postgisobjekt</font><br/>
+<font color="#808080">238</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">239</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">PGgeometry&nbsp;convertToPostgis</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">240</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;new&nbsp;</b></font><font color="#000000">PGgeometry</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Point</font><font color="#000000">(</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getX</font><font color="#000000">()</font><font color="#000000">,&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getY</font><font color="#000000">()))</font><font color="#000000">;</font><br/>
+<font color="#808080">241</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;convertToPostgis</font><br/>
+<font color="#808080">242</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">243</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">244</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Da&nbsp;dieses&nbsp;POSTGIS-System&nbsp;nicht&nbsp;in&nbsp;der&nbsp;Lage&nbsp;ist&nbsp;aus&nbsp;einem&nbsp;Polygon&nbsp;einen</font><br/>
+<font color="#808080">245</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Punkt&nbsp;rauszugeben&nbsp;und&nbsp;Polygon-WrapperObjekte&nbsp;keine&nbsp;vern&uuml;nftigen&nbsp;</font><br/>
+<font color="#808080">246</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Getter-Methoden&nbsp;besitzen,&nbsp;die&nbsp;eine&nbsp;Arbeit&nbsp;damit&nbsp;erm&ouml;glichen,&nbsp;wandelt&nbsp;diese</font><br/>
+<font color="#808080">247</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Methode&nbsp;ein&nbsp;Polygon&nbsp;(aus&nbsp;der&nbsp;Datenbank&nbsp;gelesen)&nbsp;in&nbsp;eine&nbsp;</font><br/>
+<font color="#808080">248</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Koordinate</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">um</font><br/>
+<font color="#808080">249</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">250</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Im&nbsp;Fehlerfall&nbsp;hat&nbsp;die&nbsp;zur&uuml;ckgegebene&nbsp;Koordinate&nbsp;als&nbsp;Koordinaten&nbsp;(0,0)&nbsp;-</font><font color="#008000">&lt;br&gt;&nbsp;</font><br/>
+<font color="#808080">251</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;dann&nbsp;ist&nbsp;was&nbsp;in&nbsp;der&nbsp;DB&nbsp;schiefgegangen!</font><br/>
+<font color="#808080">252</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><br/>
+<font color="#808080">253</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">polygon&nbsp;aus&nbsp;der&nbsp;Datenbank&nbsp;gelesenes&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Polygon</font><font color="#008000">&lt;/code&gt;</font><font color="#008000">-Objekt</font><br/>
+<font color="#808080">254</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">koordinatendarstellung</font><br/>
+<font color="#808080">255</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">256</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">Koordinate&nbsp;convertType</font><font color="#000000">(</font><font color="#000000">Polygon&nbsp;polygon</font><font color="#000000">)&nbsp;{</font><br/>
+<font color="#808080">257</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;poly&nbsp;=&nbsp;polygon.getValue</font><font color="#000000">()</font><font color="#000000">.trim</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">258</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Koordinate&nbsp;erg&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Koordinate</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">259</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">260</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Das&nbsp;Format&nbsp;ist&nbsp;so:</font><br/>
+<font color="#808080">261</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;POLYGON((13.44839&nbsp;52.50434,13.44892&nbsp;52.50487,13.44827&nbsp;52.50511,</font><br/>
+<font color="#808080">262</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;13.44796&nbsp;52.50457,13.44839&nbsp;52.50434))&nbsp;-&nbsp;</font><br/>
+<font color="#808080">263</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;als&nbsp;nur&nbsp;POLYGON((&nbsp;...&nbsp;))&nbsp;wegschneiden!&nbsp;und&nbsp;dann&nbsp;Tokenizer&nbsp;mit&nbsp;Komma</font><br/>
+<font color="#808080">264</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">poly&nbsp;=&nbsp;poly.substring</font><font color="#000000">(</font><font color="#990000">2</font><font color="#000000">,poly.length</font><font color="#000000">()</font><font color="#000000">-</font><font color="#990000">2</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">265</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">poly&nbsp;=&nbsp;poly.substring</font><font color="#000000">(</font><font color="#990000">6</font><font color="#000000">,poly.length</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">266</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">267</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Koordinaten&nbsp;auslesen</font><br/>
+<font color="#808080">268</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">StringTokenizer&nbsp;tokenizer1&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">StringTokenizer</font><font color="#000000">(</font><font color="#000000">poly,&nbsp;</font><font color="#990000">&#34;,&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">269</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#000000">tokenizer1.hasMoreTokens</font><font color="#000000">())&nbsp;{</font><br/>
+<font color="#808080">270</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">StringTokenizer&nbsp;tokenizer2&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">StringTokenizer</font><font color="#000000">(</font><font color="#000000">tokenizer1.nextToken</font><font color="#000000">()</font><font color="#000000">,&nbsp;</font><font color="#990000">&#34;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br/>
+<font color="#808080">271</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;1.&nbsp;Koordinate&nbsp;setzen</font><br/>
+<font color="#808080">272</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">erg.setX</font><font color="#000000">(</font><font color="#000000">Double.valueOf</font><font color="#000000">(</font><font color="#000000">tokenizer2.nextToken</font><font color="#000000">())</font><font color="#000000">.doubleValue</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">273</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;2.Koordinate&nbsp;setzen,&nbsp;wenn&nbsp;Fehler&nbsp;beim&nbsp;Lesen&nbsp;auftritt,&nbsp;wird&nbsp;keine</font><br/>
+<font color="#808080">274</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Ausnahme&nbsp;geworfen&nbsp;und&nbsp;die&nbsp;2.Koordinate&nbsp;bleibt&nbsp;0</font><br/>
+<font color="#808080">275</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#000000">tokenizer2.hasMoreTokens</font><font color="#000000">())&nbsp;{</font><br/>
+<font color="#808080">276</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">erg.setY</font><font color="#000000">(</font><font color="#000000">Double.valueOf</font><font color="#000000">(</font><font color="#000000">tokenizer2.nextToken</font><font color="#000000">())</font><font color="#000000">.doubleValue</font><font color="#000000">())</font><font color="#000000">;</font><br/>
+<font color="#808080">277</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;if&nbsp;</font><br/>
+<font color="#808080">278</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;if</font><br/>
+<font color="#808080">279</font>&nbsp;<font color="#ffffff"></font><br/>
+<font color="#808080">280</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">erg;</font><br/>
+<font color="#808080">281</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;convertType</font><br/>
+<font color="#808080">282</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">283</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br/>
+<font color="#808080">284</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**</font><br/>
+<font color="#808080">285</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;stellt&nbsp;die&nbsp;Koordinate&nbsp;mit&nbsp;Ihrer&nbsp;Umgebung&nbsp;als&nbsp;Tupel&nbsp;dar</font><br/>
+<font color="#808080">286</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">nullpointersichere&nbsp;Stringrepr&auml;sentation</font><br/>
+<font color="#808080">287</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br/>
+<font color="#808080">288</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()&nbsp;{</font><br/>
+<font color="#808080">289</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;ergebnis&nbsp;=&nbsp;</font><font color="#990000">&#34;&lt;&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">290</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">291</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getX</font><font color="#000000">()&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#990000">0&nbsp;</font><font color="#000000">)&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getX</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">292</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#990000">&#34;,&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">293</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getY</font><font color="#000000">()&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#990000">0&nbsp;</font><font color="#000000">)&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getY</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">294</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#990000">&#34;&gt;,&nbsp;links(&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">295</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getXLinks</font><font color="#000000">()&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#990000">0&nbsp;</font><font color="#000000">)&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getXLinks</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">296</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#990000">&#34;,&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">297</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getYLinks</font><font color="#000000">()&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#990000">0&nbsp;</font><font color="#000000">)&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getYLinks</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">298</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#990000">&#34;),&nbsp;rechts(&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">299</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getXRechts</font><font color="#000000">()&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#990000">0&nbsp;</font><font color="#000000">)&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getXRechts</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">300</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#990000">&#34;,&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">301</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getYRechts</font><font color="#000000">()&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#990000">0&nbsp;</font><font color="#000000">)&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.getYRechts</font><font color="#000000">()</font><font color="#000000">;</font><br/>
+<font color="#808080">302</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ergebnis&nbsp;+=&nbsp;</font><font color="#990000">&#34;)&#34;</font><font color="#000000">;</font><br/>
+<font color="#808080">303</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br/>
+<font color="#808080">304</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">ergebnis;</font><br/>
+<font color="#808080">305</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;toString</font><br/>
+<font color="#808080">306</font>&nbsp;<font color="#000000">}&nbsp;</font><font color="#008000">//&nbsp;end&nbsp;of&nbsp;class&nbsp;Koordinate&nbsp;&nbsp;</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>
