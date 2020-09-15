@@ -1,0 +1,12 @@
+/home/hirsch/Documents/java/eclipseInhalte/diplomarbeitstruts/WEB-INF/DiplomarbeitStruts API Documentation
+ersetzen in
+DiplomarbeitStruts API Documentation
+
+/home/hirsch/Documents/java/eclipseInhalte/diplomarbeitstruts/WEB-INF/${DSTAMP}
+ersetzen in
+2004-06-15
+
+
+/home/hirsch/Documents/java/eclipseInhalte/diplomarbeitstruts/WEB-INF/DiplomarbeitStruts Java2HTML-Documentation 
+ersetzen in
+DiplomarbeitStruts Java2HTML-Documentation
